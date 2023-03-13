@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace StoreApp
 {
-    public partial class MainForm : Form
+    public partial class SummaryForm : Form
     {
-        public MainForm()
+        public SummaryForm()
         {
             InitializeComponent();
         }
 
-        private void SummaryButton_Click(object sender, EventArgs e)
+        private void ExitSummaryButton_Click(object sender, EventArgs e)
         {
-            var newform = new SummaryForm();
-            newform.Show();
+            this.Close();
         }
     }
 }

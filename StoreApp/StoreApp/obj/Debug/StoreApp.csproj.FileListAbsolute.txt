@@ -9,3 +9,4 @@ D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\St
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.csproj.CoreCompileInputs.cache
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.exe
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.pdb
+D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.SummaryForm.resources
