@@ -10,3 +10,15 @@ D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\St
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.exe
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.pdb
 D:\NUIG Documents\Business application 2\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.SummaryForm.resources
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\bin\Debug\StoreApp.exe.config
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\bin\Debug\StoreApp.exe
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\bin\Debug\StoreApp.pdb
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.csproj.AssemblyReference.cache
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.csproj.SuggestedBindingRedirects.cache
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.MainForm.resources
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.Properties.Resources.resources
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.SummaryForm.resources
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.csproj.GenerateResource.cache
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.csproj.CoreCompileInputs.cache
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.exe
+C:\Nuig\Business Application\Semester 2\Team_Assignment\Business_Application_Team_Assignment\Business_Application_Team_Assignment\StoreApp\StoreApp\obj\Debug\StoreApp.pdb
