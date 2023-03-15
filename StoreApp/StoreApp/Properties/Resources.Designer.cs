@@ -63,9 +63,9 @@ namespace StoreApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3_guys_pizzeria {
+        internal static System.Drawing.Bitmap _3_guys_pizzeria1 {
             get {
-                object obj = ResourceManager.GetObject("3 guys pizzeria", resourceCulture);
+                object obj = ResourceManager.GetObject("3_guys_pizzeria1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

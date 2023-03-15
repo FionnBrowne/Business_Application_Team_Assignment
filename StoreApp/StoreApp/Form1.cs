@@ -25,5 +25,10 @@ namespace StoreApp
             var newform = new SummaryForm();
             newform.Show();
         }
+
+        private void ExitSummaryButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
