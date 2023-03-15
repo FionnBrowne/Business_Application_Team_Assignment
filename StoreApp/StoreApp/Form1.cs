@@ -45,15 +45,15 @@ namespace StoreApp
             newform.Show();
         }
 
-<<<<<<< HEAD
+
         private void AddOrderToOrderButton_Click(object sender, EventArgs e)
         {
 
-=======
+        }
         private void ExitSummaryButton_Click(object sender, EventArgs e)
         {
             this.Close();
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
+
         }
     }
 }

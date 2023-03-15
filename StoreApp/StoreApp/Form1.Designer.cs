@@ -30,53 +30,53 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CurrentOrderTotalTextBox = new System.Windows.Forms.TextBox();
+            this.AddOrderToOrderButton = new System.Windows.Forms.Button();
             this.PizzaSizeListBox = new System.Windows.Forms.ListBox();
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.SummaryButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.AddOrderToOrderButton = new System.Windows.Forms.Button();
-            this.CurrentOrderTotalTextBox = new System.Windows.Forms.TextBox();
-=======
-            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.ExitSummaryButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
+            this.ExitSummaryButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-<<<<<<< HEAD
             this.panel1.Controls.Add(this.CurrentOrderTotalTextBox);
             this.panel1.Controls.Add(this.AddOrderToOrderButton);
-            this.panel1.Controls.Add(this.PizzaSizeListBox);
-            this.panel1.Controls.Add(this.PizzaTypeListBox);
-            this.panel1.Controls.Add(this.SummaryButton);
-            this.panel1.Controls.Add(this.button1);
-=======
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.PizzaSizeListBox);
             this.panel1.Controls.Add(this.PizzaTypeListBox);
-            this.panel1.Controls.Add(this.checkedListBox3);
-            this.panel1.Controls.Add(this.label3);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(58, 51);
             this.panel1.Name = "panel1";
-<<<<<<< HEAD
-            this.panel1.Size = new System.Drawing.Size(1108, 386);
-=======
-            this.panel1.Size = new System.Drawing.Size(1449, 486);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
+            this.panel1.Size = new System.Drawing.Size(975, 385);
             this.panel1.TabIndex = 0;
+            // 
+            // CurrentOrderTotalTextBox
+            // 
+            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(480, 161);
+            this.CurrentOrderTotalTextBox.Name = "CurrentOrderTotalTextBox";
+            this.CurrentOrderTotalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CurrentOrderTotalTextBox.TabIndex = 18;
+            // 
+            // AddOrderToOrderButton
+            // 
+            this.AddOrderToOrderButton.Location = new System.Drawing.Point(600, 158);
+            this.AddOrderToOrderButton.Name = "AddOrderToOrderButton";
+            this.AddOrderToOrderButton.Size = new System.Drawing.Size(75, 23);
+            this.AddOrderToOrderButton.TabIndex = 17;
+            this.AddOrderToOrderButton.Text = "Add to Order";
+            this.AddOrderToOrderButton.UseVisualStyleBackColor = true;
+            this.AddOrderToOrderButton.Click += new System.EventHandler(this.AddOrderToOrderButton_Click);
             // 
             // PizzaSizeListBox
             // 
@@ -90,11 +90,7 @@
             "15 inch",
             "18 inch"});
             this.PizzaSizeListBox.Location = new System.Drawing.Point(197, 51);
-<<<<<<< HEAD
             this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2);
-=======
-            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.PizzaSizeListBox.Name = "PizzaSizeListBox";
             this.PizzaSizeListBox.Size = new System.Drawing.Size(114, 180);
             this.PizzaSizeListBox.TabIndex = 16;
@@ -119,28 +115,18 @@
             "Ham and Cheese Pizza\t",
             "3-Guys-Special-Pizza"});
             this.PizzaTypeListBox.Location = new System.Drawing.Point(44, 51);
-<<<<<<< HEAD
             this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2);
-=======
-            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.PizzaTypeListBox.Name = "PizzaTypeListBox";
             this.PizzaTypeListBox.Size = new System.Drawing.Size(150, 154);
             this.PizzaTypeListBox.TabIndex = 15;
             // 
             // SummaryButton
             // 
-<<<<<<< HEAD
-            this.SummaryButton.Location = new System.Drawing.Point(788, 327);
-            this.SummaryButton.Name = "SummaryButton";
-            this.SummaryButton.Size = new System.Drawing.Size(75, 23);
-=======
             this.SummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SummaryButton.Location = new System.Drawing.Point(3, 135);
             this.SummaryButton.Name = "SummaryButton";
             this.SummaryButton.Size = new System.Drawing.Size(80, 27);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.SummaryButton.TabIndex = 14;
             this.SummaryButton.Text = "&Summary";
             this.SummaryButton.UseVisualStyleBackColor = false;
@@ -148,88 +134,14 @@
             // 
             // button1
             // 
-<<<<<<< HEAD
-            this.button1.Location = new System.Drawing.Point(788, 247);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-=======
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(3, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 27);
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.button1.TabIndex = 13;
             this.button1.Text = "&Confirm";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-<<<<<<< HEAD
-=======
-            // checkedListBox3
-            // 
-            this.checkedListBox3.FormattingEnabled = true;
-            this.checkedListBox3.Items.AddRange(new object[] {
-            "Apples",
-            "cars",
-            "road kill",
-            "plastic"});
-            this.checkedListBox3.Location = new System.Drawing.Point(730, 41);
-            this.checkedListBox3.Name = "checkedListBox3";
-            this.checkedListBox3.Size = new System.Drawing.Size(164, 184);
-            this.checkedListBox3.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(728, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Additional toppings";
-            // 
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Pizza type";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(195, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Pizza sizes& cost";
-            // 
-<<<<<<< HEAD
-            // AddOrderToOrderButton
-            // 
-            this.AddOrderToOrderButton.Location = new System.Drawing.Point(757, 181);
-            this.AddOrderToOrderButton.Name = "AddOrderToOrderButton";
-            this.AddOrderToOrderButton.Size = new System.Drawing.Size(75, 23);
-            this.AddOrderToOrderButton.TabIndex = 17;
-            this.AddOrderToOrderButton.Text = "Add to Order";
-            this.AddOrderToOrderButton.UseVisualStyleBackColor = true;
-            this.AddOrderToOrderButton.Click += new System.EventHandler(this.AddOrderToOrderButton_Click);
-            // 
-            // CurrentOrderTotalTextBox
-            // 
-            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(584, 160);
-            this.CurrentOrderTotalTextBox.Name = "CurrentOrderTotalTextBox";
-            this.CurrentOrderTotalTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CurrentOrderTotalTextBox.TabIndex = 18;
-=======
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -241,22 +153,10 @@
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1023, 196);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(881, 175);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(85, 200);
             this.flowLayoutPanel1.TabIndex = 17;
-            // 
-            // ExitSummaryButton
-            // 
-            this.ExitSummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ExitSummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitSummaryButton.Location = new System.Drawing.Point(3, 168);
-            this.ExitSummaryButton.Name = "ExitSummaryButton";
-            this.ExitSummaryButton.Size = new System.Drawing.Size(80, 27);
-            this.ExitSummaryButton.TabIndex = 18;
-            this.ExitSummaryButton.Text = "&Exit";
-            this.ExitSummaryButton.UseVisualStyleBackColor = false;
-            this.ExitSummaryButton.Click += new System.EventHandler(this.ExitSummaryButton_Click);
             // 
             // button2
             // 
@@ -290,20 +190,44 @@
             this.button4.TabIndex = 21;
             this.button4.Text = "&Button";
             this.button4.UseVisualStyleBackColor = false;
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
+            // 
+            // ExitSummaryButton
+            // 
+            this.ExitSummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ExitSummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitSummaryButton.Location = new System.Drawing.Point(3, 168);
+            this.ExitSummaryButton.Name = "ExitSummaryButton";
+            this.ExitSummaryButton.Size = new System.Drawing.Size(80, 27);
+            this.ExitSummaryButton.TabIndex = 18;
+            this.ExitSummaryButton.Text = "&Exit";
+            this.ExitSummaryButton.UseVisualStyleBackColor = false;
+            this.ExitSummaryButton.Click += new System.EventHandler(this.ExitSummaryButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Pizza type";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(195, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Pizza sizes& cost";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 459);
-<<<<<<< HEAD
-            this.Controls.Add(this.panel1);
-=======
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1051, 450);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
             this.Name = "MainForm";
             this.Text = "3 Guys Pizza";
             this.panel1.ResumeLayout(false);
@@ -322,17 +246,14 @@
         private System.Windows.Forms.Button SummaryButton;
         private System.Windows.Forms.ListBox PizzaSizeListBox;
         private System.Windows.Forms.ListBox PizzaTypeListBox;
-<<<<<<< HEAD
         private System.Windows.Forms.Button AddOrderToOrderButton;
         private System.Windows.Forms.TextBox CurrentOrderTotalTextBox;
-=======
+
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button ExitSummaryButton;
->>>>>>> ab96624b58bf1b90f0bbbdbe065397765e03d9f6
     }
 }
 
