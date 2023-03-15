@@ -15,10 +15,10 @@ namespace StoreApp
         //List box items
         String[] PizzaTypes = { "Margherita Pizza", "Hawaiian Pizza", "Pepperoni", "Meat Feast", "Chicago Deep Dish Pizza", "Veggie Pizza", "BBQ Chicken Pizza", "Peri Peri Chicken Pizza", "Beef Supreme Pizza", "Neapolitan Pizza", "Buffalo Pizza", "Ham and Cheese Pizza", "3-Guys-Special-Pizza" };
         //decimal[] CostOfPizza = { 7.50m, 8.00m, 7.00m, 9.00m, 8.50m, 7.00m, 10.00m, 10.50m, 11.00m, 8.75m, 9.00m, 8.00m, 12.00m };
+        string Pizza;
 
 
-
-        decimal[,] PizzaSizeCost = {
+        decimal[,] PizzaSizeCost = new decimal[13, 5] {
             { 7.50m, 10.50m, 13.50m,15.50m,17.50m},
             { 8.00m, 12.25m, 15.00m, 18.50m, 22.00m },
             { 7.00m, 9.25m, 11.00m, 14.00m, 17.50m },
@@ -48,7 +48,36 @@ namespace StoreApp
 
         private void AddOrderToOrderButton_Click(object sender, EventArgs e)
         {
+            int PizzaTypeIndex = 0, PizzaSizeIndex = 0;
+            //int[,] PizzaSizeIndex = [0, 0];
+            decimal PizzaPrice;
 
+            if (PizzaTypeListBox.SelectedIndex != -1)
+            {
+                if (PizzaSizeListBox.SelectedIndex != -1)
+                {
+                    PizzaTypeIndex = PizzaTypeListBox.SelectedIndex;
+                    PizzaSizeIndex = PizzaSizeListBox.SelectedIndex;
+                    //PizzaPrice is = to the Pizza type index position on the array of pizza then the size index position
+                    Pizza = PizzaTypes[PizzaTypeIndex];
+                    PizzaPrice = PizzaSizeCost[PizzaTypeIndex, PizzaSizeIndex];
+
+
+                    CurrentOrderTotalTextBox.Text = PizzaPrice.ToString("C2");
+                }
+                else
+                {
+                    MessageBox.Show("A Pizza Type is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    PizzaSizeListBox.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("A Pizza Size is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PizzaTypeListBox.Focus();
+            }
+            
+                    
         }
         private void ExitSummaryButton_Click(object sender, EventArgs e)
         {
