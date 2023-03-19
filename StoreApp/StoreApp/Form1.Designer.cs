@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.QuantityLabel = new System.Windows.Forms.Label();
+            this.DecreaseQuantityButton = new System.Windows.Forms.Button();
+            this.PizzaQuantityTextbox = new System.Windows.Forms.TextBox();
+            this.IncreaseQuantityButton = new System.Windows.Forms.Button();
             this.CancelTransactionButton = new System.Windows.Forms.Button();
             this.RemoveSelectedItemButton = new System.Windows.Forms.Button();
             this.OrderTotalTextBox = new System.Windows.Forms.TextBox();
@@ -41,19 +47,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ConfirmButton = new System.Windows.Forms.Button();
             this.SummaryButton = new System.Windows.Forms.Button();
             this.ExitSummaryButton = new System.Windows.Forms.Button();
             this.PizzaSizeListBox = new System.Windows.Forms.ListBox();
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.IncreaseQuantityButton = new System.Windows.Forms.Button();
-            this.PizzaQuantityTextbox = new System.Windows.Forms.TextBox();
-            this.DecreaseQuantityButton = new System.Windows.Forms.Button();
-            this.QuantityLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +83,65 @@
             this.panel1.Size = new System.Drawing.Size(975, 385);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(423, 337);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Current Transaction Cost";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(423, 365);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Total Transaction Cost";
+            // 
+            // QuantityLabel
+            // 
+            this.QuantityLabel.AutoSize = true;
+            this.QuantityLabel.Location = new System.Drawing.Point(3, 206);
+            this.QuantityLabel.Name = "QuantityLabel";
+            this.QuantityLabel.Size = new System.Drawing.Size(91, 13);
+            this.QuantityLabel.TabIndex = 28;
+            this.QuantityLabel.Text = "Number Of Pizzas";
+            // 
+            // DecreaseQuantityButton
+            // 
+            this.DecreaseQuantityButton.Location = new System.Drawing.Point(100, 203);
+            this.DecreaseQuantityButton.Name = "DecreaseQuantityButton";
+            this.DecreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
+            this.DecreaseQuantityButton.TabIndex = 27;
+            this.DecreaseQuantityButton.Text = "<";
+            this.DecreaseQuantityButton.UseVisualStyleBackColor = true;
+            this.DecreaseQuantityButton.Click += new System.EventHandler(this.DecreaseQuantityButton_Click);
+            // 
+            // PizzaQuantityTextbox
+            // 
+            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(117, 203);
+            this.PizzaQuantityTextbox.Name = "PizzaQuantityTextbox";
+            this.PizzaQuantityTextbox.ReadOnly = true;
+            this.PizzaQuantityTextbox.ShortcutsEnabled = false;
+            this.PizzaQuantityTextbox.Size = new System.Drawing.Size(20, 20);
+            this.PizzaQuantityTextbox.TabIndex = 26;
+            this.PizzaQuantityTextbox.TabStop = false;
+            this.PizzaQuantityTextbox.Text = "1";
+            this.PizzaQuantityTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // IncreaseQuantityButton
+            // 
+            this.IncreaseQuantityButton.Location = new System.Drawing.Point(139, 203);
+            this.IncreaseQuantityButton.Name = "IncreaseQuantityButton";
+            this.IncreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
+            this.IncreaseQuantityButton.TabIndex = 25;
+            this.IncreaseQuantityButton.Text = ">";
+            this.IncreaseQuantityButton.UseVisualStyleBackColor = true;
+            this.IncreaseQuantityButton.Click += new System.EventHandler(this.IncreaseQuantityButton_Click);
             // 
             // CancelTransactionButton
             // 
@@ -157,7 +216,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.ConfirmButton);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(881, 175);
@@ -198,16 +257,17 @@
             this.button4.Text = "&Button";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // ConfirmButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(3, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 27);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "&Confirm";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmButton.Location = new System.Drawing.Point(3, 102);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
+            this.ConfirmButton.TabIndex = 13;
+            this.ConfirmButton.Text = "&Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = false;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // SummaryButton
             // 
@@ -295,65 +355,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pizza sizes& cost";
             // 
-            // IncreaseQuantityButton
-            // 
-            this.IncreaseQuantityButton.Location = new System.Drawing.Point(139, 203);
-            this.IncreaseQuantityButton.Name = "IncreaseQuantityButton";
-            this.IncreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
-            this.IncreaseQuantityButton.TabIndex = 25;
-            this.IncreaseQuantityButton.Text = ">";
-            this.IncreaseQuantityButton.UseVisualStyleBackColor = true;
-            this.IncreaseQuantityButton.Click += new System.EventHandler(this.IncreaseQuantityButton_Click);
-            // 
-            // PizzaQuantityTextbox
-            // 
-            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(117, 203);
-            this.PizzaQuantityTextbox.Name = "PizzaQuantityTextbox";
-            this.PizzaQuantityTextbox.ReadOnly = true;
-            this.PizzaQuantityTextbox.ShortcutsEnabled = false;
-            this.PizzaQuantityTextbox.Size = new System.Drawing.Size(20, 20);
-            this.PizzaQuantityTextbox.TabIndex = 26;
-            this.PizzaQuantityTextbox.TabStop = false;
-            this.PizzaQuantityTextbox.Text = "1";
-            this.PizzaQuantityTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // DecreaseQuantityButton
-            // 
-            this.DecreaseQuantityButton.Location = new System.Drawing.Point(100, 203);
-            this.DecreaseQuantityButton.Name = "DecreaseQuantityButton";
-            this.DecreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
-            this.DecreaseQuantityButton.TabIndex = 27;
-            this.DecreaseQuantityButton.Text = "<";
-            this.DecreaseQuantityButton.UseVisualStyleBackColor = true;
-            this.DecreaseQuantityButton.Click += new System.EventHandler(this.DecreaseQuantityButton_Click);
-            // 
-            // QuantityLabel
-            // 
-            this.QuantityLabel.AutoSize = true;
-            this.QuantityLabel.Location = new System.Drawing.Point(3, 206);
-            this.QuantityLabel.Name = "QuantityLabel";
-            this.QuantityLabel.Size = new System.Drawing.Size(91, 13);
-            this.QuantityLabel.TabIndex = 28;
-            this.QuantityLabel.Text = "Number Of Pizzas";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(423, 365);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Total Transaction Cost";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 337);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Current Transaction Cost";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +376,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ConfirmButton;
         private System.Windows.Forms.Button SummaryButton;
         private System.Windows.Forms.ListBox PizzaSizeListBox;
         private System.Windows.Forms.ListBox PizzaTypeListBox;

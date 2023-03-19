@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -78,6 +79,7 @@ namespace StoreApp
                         //Adds it into the new listbox
                         OrderedListbox.Items.Add(PizzaSelected + "           " + SizeSelected + "           " + TotalPizza);
 
+                        OrderedListbox.SelectedIndex = OrderedListbox.SelectedIndex + 1;
                         //Adds order total
                     }
 
@@ -88,13 +90,13 @@ namespace StoreApp
                 }
                 else
                 {
-                    MessageBox.Show("A Pizza Type is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("A Pizza Type is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PizzaSizeListBox.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("A Pizza Size is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A Pizza Size is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 PizzaTypeListBox.Focus();
             }
 
@@ -123,7 +125,7 @@ namespace StoreApp
         private void CancelTransactionButton_Click(object sender, EventArgs e)
         {
             //clears all the transaction
-            DialogResult = MessageBox.Show("Are you sure you would like to Cancel the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult = MessageBox.Show("Are you sure you would like to Cancel the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (DialogResult == DialogResult.Yes)
             {
@@ -187,6 +189,37 @@ namespace StoreApp
                 CurrentOrderTotalTextBox.Text = PizzaPrice.ToString("C2");
             }
             return 0;
+        }
+
+        private void ConfirmButton_Click(object sender, EventArgs e)
+        {
+            if (OrderedListbox.Items.Count != 0)
+            {
+                DialogResult = MessageBox.Show("Are you sure you would like to Save and Process the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (DialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
+
+                        for (int i = 0; i < OrderedListbox.Items.Count; i++)
+                        {
+                            OutputFile.WriteLine(OrderedListbox.Items[i]);
+                        }
+
+                        OutputFile.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("A fatal error has occured, please contact your administator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please make an order before proceeding", "No Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
