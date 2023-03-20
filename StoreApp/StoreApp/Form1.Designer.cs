@@ -46,7 +46,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.OrderConformationButton = new System.Windows.Forms.Button();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.SummaryButton = new System.Windows.Forms.Button();
             this.ExitSummaryButton = new System.Windows.Forms.Button();
@@ -54,6 +54,7 @@
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -215,7 +216,7 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.button4);
+            this.flowLayoutPanel1.Controls.Add(this.OrderConformationButton);
             this.flowLayoutPanel1.Controls.Add(this.ConfirmButton);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
@@ -246,16 +247,16 @@
             this.button3.Text = "&Button";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // OrderConformationButton
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(3, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 27);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "&Button";
-            this.button4.UseVisualStyleBackColor = false;
+            this.OrderConformationButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.OrderConformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderConformationButton.Location = new System.Drawing.Point(3, 69);
+            this.OrderConformationButton.Name = "OrderConformationButton";
+            this.OrderConformationButton.Size = new System.Drawing.Size(80, 27);
+            this.OrderConformationButton.TabIndex = 21;
+            this.OrderConformationButton.Text = "&Order";
+            this.OrderConformationButton.UseVisualStyleBackColor = false;
             // 
             // ConfirmButton
             // 
@@ -355,11 +356,20 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pizza sizes& cost";
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(1061, 191);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(219, 79);
+            this.checkedListBox1.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 450);
+            this.ClientSize = new System.Drawing.Size(1306, 450);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -386,7 +396,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button OrderConformationButton;
         private System.Windows.Forms.Button ExitSummaryButton;
         private System.Windows.Forms.ListBox OrderedListbox;
         private System.Windows.Forms.TextBox OrderTotalTextBox;
@@ -399,6 +409,7 @@
         private System.Windows.Forms.Label QuantityLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
 
