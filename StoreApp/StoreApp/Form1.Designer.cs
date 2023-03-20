@@ -54,7 +54,7 @@
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -217,12 +217,11 @@
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.OrderConformationButton);
-            this.flowLayoutPanel1.Controls.Add(this.ConfirmButton);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(881, 175);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(881, 206);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(85, 200);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(85, 169);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // button2
@@ -257,12 +256,13 @@
             this.OrderConformationButton.TabIndex = 21;
             this.OrderConformationButton.Text = "&Order";
             this.OrderConformationButton.UseVisualStyleBackColor = false;
+            this.OrderConformationButton.Click += new System.EventHandler(this.OrderConformationButton_Click);
             // 
             // ConfirmButton
             // 
             this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(3, 102);
+            this.ConfirmButton.Location = new System.Drawing.Point(1222, 374);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
             this.ConfirmButton.TabIndex = 13;
@@ -274,7 +274,7 @@
             // 
             this.SummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SummaryButton.Location = new System.Drawing.Point(3, 135);
+            this.SummaryButton.Location = new System.Drawing.Point(3, 102);
             this.SummaryButton.Name = "SummaryButton";
             this.SummaryButton.Size = new System.Drawing.Size(80, 27);
             this.SummaryButton.TabIndex = 14;
@@ -286,7 +286,7 @@
             // 
             this.ExitSummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ExitSummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitSummaryButton.Location = new System.Drawing.Point(3, 168);
+            this.ExitSummaryButton.Location = new System.Drawing.Point(3, 135);
             this.ExitSummaryButton.Name = "ExitSummaryButton";
             this.ExitSummaryButton.Size = new System.Drawing.Size(80, 27);
             this.ExitSummaryButton.TabIndex = 18;
@@ -356,24 +356,26 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pizza sizes& cost";
             // 
-            // checkedListBox1
+            // listBox1
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(1061, 191);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(219, 79);
-            this.checkedListBox1.TabIndex = 1;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(1142, 123);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(160, 238);
+            this.listBox1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 450);
-            this.Controls.Add(this.checkedListBox1);
+            this.ClientSize = new System.Drawing.Size(1441, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ConfirmButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "3 Guys Pizza";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -409,7 +411,7 @@
         private System.Windows.Forms.Label QuantityLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

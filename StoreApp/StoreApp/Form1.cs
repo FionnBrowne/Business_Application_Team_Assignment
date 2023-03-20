@@ -18,8 +18,8 @@ namespace StoreApp
         String[] PizzaTypes = { "Margherita Pizza", "Hawaiian Pizza", "Pepperoni Pizza", "Meat Feast Pizza", "Chicago Deep Dish Pizza", "Veggie Pizza", "BBQ Chicken Pizza", "Peri Peri Chicken Pizza", "Beef Supreme Pizza", "Neapolitan Pizza", "Buffalo Pizza", "Ham and Cheese Pizza", "3-Guys-Special-Pizza" };
         //decimal[] CostOfPizza = { 7.50m, 8.00m, 7.00m, 9.00m, 8.50m, 7.00m, 10.00m, 10.50m, 11.00m, 8.75m, 9.00m, 8.00m, 12.00m };
         string Pizza;
-        const int INCREMENT = 10, FORMSTARTWIDTH = 794, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1216;
-        Boolean FormWidthExpanded = false;
+        const int INCREMENT = 10, FORMSTARTWIDTH = 1100, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1406;
+        Boolean FormWidthExpanded = true;
         decimal[,] PizzaSizeCost = new decimal[13, 5] {
             { 7.50m, 10.50m, 13.50m, 15.50m, 17.50m},
             { 8.00m, 12.25m, 15.00m, 18.50m, 22.00m },
@@ -174,6 +174,16 @@ namespace StoreApp
             ChangeDuringClick();
         }
 
+        private void OrderConformationButton_Click(object sender, EventArgs e)
+        {
+            ChangeFormWidth(true);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ChangeFormWidth(false);
+        }
+
         //When listboxes are clicked, or increase/decrease quantity, the current price changes
         private int ChangeDuringClick()
         {
@@ -198,7 +208,7 @@ namespace StoreApp
 
             if (OrderedListbox.Items.Count != 0)
             {
-                ChangeFormWidth(true);
+                
                 DialogResult = MessageBox.Show("Are you sure you would like to Save and Process the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (DialogResult == DialogResult.Yes)
@@ -211,7 +221,7 @@ namespace StoreApp
                         {
                             OutputFile.WriteLine(OrderedListbox.Items[i]);
                         }
-
+                        ChangeFormWidth(false);
                         OutputFile.Close();
                     }
                     catch
