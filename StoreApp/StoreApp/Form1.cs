@@ -45,6 +45,7 @@ namespace StoreApp
         decimal TotalTranactionCost { get;set; }
         int TransactionCount { get; set; }
         int TotalPizzaSold { get; set; }
+        int AvailableStock { get; set; }
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
@@ -143,9 +144,17 @@ namespace StoreApp
             int Add = 1, quantity;
 
             quantity = int.Parse(PizzaQuantityTextbox.Text);
-            quantity += Add;
-            PizzaQuantityTextbox.Text = quantity.ToString();
-            ChangeDuringClick();
+
+            if (quantity != AvailableStock)
+            {
+                quantity += Add;
+                PizzaQuantityTextbox.Text = quantity.ToString();
+                ChangeDuringClick();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, but this is the Current Maximum Number of this Pizzas Type and Size in Stock", "Maximum Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void DecreaseQuantityButton_Click(object sender, EventArgs e)
@@ -164,12 +173,14 @@ namespace StoreApp
 
         private void PizzaSizeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            PizzaQuantityTextbox.Text = "1";
             ChangeDuringClick();
         }
 
         private void PizzaTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeDuringClick();
+            PizzaQuantityTextbox.Text = "1";
+            ChangeDuringClick();        
         }
 
         private void OrderConformationButton_Click(object sender, EventArgs e)
@@ -185,17 +196,58 @@ namespace StoreApp
         //When listboxes are clicked, or increase/decrease quantity, the current price changes
         private int ChangeDuringClick()
         {
-            int PizzaTypeIndex = 0, PizzaSizeIndex = 0, Quantity = int.Parse(PizzaQuantityTextbox.Text);
+            int PizzaTypeIndex = 0, PizzaSizeIndex = 0, Quantity = int.Parse(PizzaQuantityTextbox.Text), row, col, value;
             decimal PizzaPrice;
+
+            // read the contents of the file into a string variable
+            string PizzaStock = File.ReadAllText("StockList.txt");
+
+            // split the string into rows and columns
+            string[] rows = PizzaStock.Split('\n');
+            int numRows = rows.Length;
+            int numCols = rows[0].Split(',').Length;
+            int[,] array = new int[numRows, numCols];
+
+            for (int i = 0; i < numRows; i++)
+            {
+                string[] cols = rows[i].Split(',');
+                for (int j = 0; j < numCols; j++)
+                {
+                    array[i, j] = int.Parse(cols[j].Trim());
+                }
+            }
+
+            // access a specific element of the array
             if (PizzaSizeListBox.SelectedItems.Count > 0 && PizzaTypeListBox.SelectedItems.Count > 0)
             {
-                PizzaTypeIndex = PizzaTypeListBox.SelectedIndex;
-                PizzaSizeIndex = PizzaSizeListBox.SelectedIndex;
-                Pizza = PizzaTypes[PizzaTypeIndex];
-                PizzaPrice = PizzaSizeCost[PizzaTypeIndex, PizzaSizeIndex];
+                row = PizzaTypeListBox.SelectedIndex;
+                col = PizzaSizeListBox.SelectedIndex;
+                value = array[row, col];
 
-                PizzaPrice *= Quantity;
-                CurrentOrderTotalTextBox.Text = PizzaPrice.ToString("C2");
+                if (value == 0)
+                {
+                    MessageBox.Show("Sorry, this Pizza Type and Size are currently Out of Stock", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    PizzaQuantityTextbox.Text = "0";
+                    CurrentOrderTotalTextBox.Text = "";
+                    AddOrderToOrderButton.Enabled = false;
+                    IncreaseQuantityButton.Enabled = false;
+                    DecreaseQuantityButton.Enabled = false;
+                }
+                else
+                {
+                    PizzaTypeIndex = PizzaTypeListBox.SelectedIndex;
+                    PizzaSizeIndex = PizzaSizeListBox.SelectedIndex;
+                    Pizza = PizzaTypes[PizzaTypeIndex];
+                    PizzaPrice = PizzaSizeCost[PizzaTypeIndex, PizzaSizeIndex];
+
+                    PizzaPrice *= Quantity;
+                    CurrentOrderTotalTextBox.Text = PizzaPrice.ToString("C2");
+                    AvailableStock = value;
+
+                    AddOrderToOrderButton.Enabled = true;
+                    IncreaseQuantityButton.Enabled = true;
+                    DecreaseQuantityButton.Enabled = true;
+                }
             }
             return 0;
         }
