@@ -41,7 +41,10 @@ namespace StoreApp
             InitializeComponent();
         }
 
-        decimal TotalTransactionCost { get;set; }
+        decimal TotalTransactionCostForTextbox { get;set; }
+        decimal TotalTranactionCost { get;set; }
+        int TransactionCount { get; set; }
+        int TotalPizzaSold { get; set; }
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
@@ -76,8 +79,8 @@ namespace StoreApp
                         string TotalPizza = CurrentOrderTotalTextBox.Text;
 
                         //Shows the total transaction cost
-                        TotalTransactionCost += PizzaPrice;
-                        OrderTotalTextBox.Text = TotalTransactionCost.ToString("C2");
+                        TotalTransactionCostForTextbox += PizzaPrice;
+                        OrderTotalTextBox.Text = TotalTransactionCostForTextbox.ToString("C2");
 
                         //Adds it into the new listbox
                         OrderedListbox.Items.Add(PizzaSelected + "           " + SizeSelected + "           " + TotalPizza);
@@ -130,7 +133,7 @@ namespace StoreApp
                 PizzaTypeListBox.ClearSelected();
                 CurrentOrderTotalTextBox.Clear();
                 OrderTotalTextBox.Clear();
-                TotalTransactionCost = 0;
+                TotalTransactionCostForTextbox = 0;
                 PizzaQuantityTextbox.Text = "1";
             }
         }
@@ -199,8 +202,7 @@ namespace StoreApp
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            string[] array = new string[OrderedListbox.Items.Count], words = null;
-            string FormatArray;
+            string[] array = new string[OrderedListbox.Items.Count];
 
             if (OrderedListbox.Items.Count != 0)
             {
@@ -211,12 +213,16 @@ namespace StoreApp
                 {
                     try
                     {
+                        TransactionCount += 1;
+                        TotalTranactionCost = TotalTransactionCostForTextbox;
+                        TotalPizzaSold = OrderedListbox.Items.Count;
+
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
-                       // OutputFile.WriteLine(txno
-                         //   OutputFile.WriteLine(DateBoldEventArgs
+                        // OutputFile.WriteLine(txno
+                        //   OutputFile.WriteLine(DateBoldEventArgs
 
-                           // OutputFile.WriteLine( TotalTransactionCost
+                        // OutputFile.WriteLine( TotalTransactionCost
 
 
                         for (int i = 0; i < OrderedListbox.Items.Count; i++)
@@ -290,16 +296,15 @@ namespace StoreApp
             for (int row = 0; row < allRows.Length; row++)
             {
                 oneRow = allRows[row].Split(',');
+                
 
                 for (int col = 0; col < allRows.Length; col++)
                 {
                     PizzaSizeCost[row, col] = decimal.Parse(oneRow[col]);
 
+
                 }
             }
-
-
-
         }
     }
 }
