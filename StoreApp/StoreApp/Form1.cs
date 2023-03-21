@@ -15,8 +15,10 @@ namespace StoreApp
     public partial class MainForm : Form
     {
         //List box items
-        String[] PizzaTypes = { "Margherita Pizza", "Hawaiian Pizza", "Pepperoni Pizza", "Meat Feast Pizza", "Chicago Deep Dish Pizza", "Veggie Pizza", "BBQ Chicken Pizza", "Peri Peri Chicken Pizza", "Beef Supreme Pizza", "Neapolitan Pizza", "Buffalo Pizza", "Ham and Cheese Pizza", "3-Guys-Special-Pizza" };
+        static String[] PizzaTypes = { "Margherita Pizza", "Hawaiian Pizza", "Pepperoni Pizza", "Meat Feast Pizza", "Chicago Deep Dish Pizza", "Veggie Pizza", "BBQ Chicken Pizza", "Peri Peri Chicken Pizza", "Beef Supreme Pizza", "Neapolitan Pizza", "Buffalo Pizza", "Ham and Cheese Pizza", "3-Guys-Special-Pizza" };
         //decimal[] CostOfPizza = { 7.50m, 8.00m, 7.00m, 9.00m, 8.50m, 7.00m, 10.00m, 10.50m, 11.00m, 8.75m, 9.00m, 8.00m, 12.00m };
+       
+        
         string Pizza;
         const int INCREMENT = 10, FORMSTARTWIDTH = 1100, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1406;
         Boolean FormWidthExpanded = true;
@@ -116,13 +118,6 @@ namespace StoreApp
 
         }
 
-        private void RemoveSelectedItemButton_Click(object sender, EventArgs e)
-        {
-            //removes selected item in order listbox
-            OrderedListbox.Items.Remove(OrderedListbox.SelectedItem);
-            OrderedListbox.ClearSelected();
-        }
-
         private void CancelTransactionButton_Click(object sender, EventArgs e)
         {
             //clears all the transaction
@@ -204,7 +199,8 @@ namespace StoreApp
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            
+            string[] array = new string[OrderedListbox.Items.Count], words = null;
+            string FormatArray;
 
             if (OrderedListbox.Items.Count != 0)
             {
@@ -217,10 +213,25 @@ namespace StoreApp
                     {
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
+                       // OutputFile.WriteLine(txno
+                         //   OutputFile.WriteLine(DateBoldEventArgs
+
+                           // OutputFile.WriteLine( TotalTransactionCost
+
+
                         for (int i = 0; i < OrderedListbox.Items.Count; i++)
                         {
-                            OutputFile.WriteLine(OrderedListbox.Items[i]);
+                          /*  object s = OrderedListbox.Items[i];
+                            array[i] = OrderedListbox.Items[i].ToString();
+                            OrderedListbox.Items.CopyTo(array, 0);
+
+                            FormatArray = array[i];
+                            //words = FormatArray; //FormatArray.Split(',');
+                          */
+                            OutputFile.WriteLine(OrderedListbox.Items[i].ToString());
                         }
+                        OutputFile.WriteLine();//end tx
+
                         ChangeFormWidth(false);
                         OutputFile.Close();
                     }
@@ -263,6 +274,32 @@ namespace StoreApp
                     FormWidthExpanded = false;
                 }
             }
+        }
+
+
+
+        private void readPrices()
+        {
+            String file = "";
+
+            String[] allRows, oneRow;
+
+            allRows = File.ReadAllLines(file);  
+
+
+            for (int row = 0; row < allRows.Length; row++)
+            {
+                oneRow = allRows[row].Split(',');
+
+                for (int col = 0; col < allRows.Length; col++)
+                {
+                    PizzaSizeCost[row, col] = decimal.Parse(oneRow[col]);
+
+                }
+            }
+
+
+
         }
     }
 }

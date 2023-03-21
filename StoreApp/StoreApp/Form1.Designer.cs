@@ -37,7 +37,6 @@
             this.PizzaQuantityTextbox = new System.Windows.Forms.TextBox();
             this.IncreaseQuantityButton = new System.Windows.Forms.Button();
             this.CancelTransactionButton = new System.Windows.Forms.Button();
-            this.RemoveSelectedItemButton = new System.Windows.Forms.Button();
             this.OrderTotalTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.OrderedListbox = new System.Windows.Forms.ListBox();
@@ -47,13 +46,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.OrderConformationButton = new System.Windows.Forms.Button();
-            this.ConfirmButton = new System.Windows.Forms.Button();
             this.SummaryButton = new System.Windows.Forms.Button();
             this.ExitSummaryButton = new System.Windows.Forms.Button();
             this.PizzaSizeListBox = new System.Windows.Forms.ListBox();
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ConfirmButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -68,7 +67,6 @@
             this.panel1.Controls.Add(this.PizzaQuantityTextbox);
             this.panel1.Controls.Add(this.IncreaseQuantityButton);
             this.panel1.Controls.Add(this.CancelTransactionButton);
-            this.panel1.Controls.Add(this.RemoveSelectedItemButton);
             this.panel1.Controls.Add(this.OrderTotalTextBox);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.OrderedListbox);
@@ -79,44 +77,49 @@
             this.panel1.Controls.Add(this.PizzaTypeListBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(58, 51);
+            this.panel1.Location = new System.Drawing.Point(87, 78);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(975, 385);
+            this.panel1.Size = new System.Drawing.Size(1462, 592);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 337);
+            this.label5.Location = new System.Drawing.Point(634, 518);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.Size = new System.Drawing.Size(186, 20);
             this.label5.TabIndex = 30;
             this.label5.Text = "Current Transaction Cost";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(423, 365);
+            this.label4.Location = new System.Drawing.Point(634, 562);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.Size = new System.Drawing.Size(168, 20);
             this.label4.TabIndex = 29;
             this.label4.Text = "Total Transaction Cost";
             // 
             // QuantityLabel
             // 
             this.QuantityLabel.AutoSize = true;
-            this.QuantityLabel.Location = new System.Drawing.Point(3, 206);
+            this.QuantityLabel.Location = new System.Drawing.Point(4, 317);
+            this.QuantityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.QuantityLabel.Name = "QuantityLabel";
-            this.QuantityLabel.Size = new System.Drawing.Size(91, 13);
+            this.QuantityLabel.Size = new System.Drawing.Size(136, 20);
             this.QuantityLabel.TabIndex = 28;
             this.QuantityLabel.Text = "Number Of Pizzas";
             // 
             // DecreaseQuantityButton
             // 
-            this.DecreaseQuantityButton.Location = new System.Drawing.Point(100, 203);
+            this.DecreaseQuantityButton.Location = new System.Drawing.Point(150, 312);
+            this.DecreaseQuantityButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DecreaseQuantityButton.Name = "DecreaseQuantityButton";
-            this.DecreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
+            this.DecreaseQuantityButton.Size = new System.Drawing.Size(24, 31);
             this.DecreaseQuantityButton.TabIndex = 27;
             this.DecreaseQuantityButton.Text = "<";
             this.DecreaseQuantityButton.UseVisualStyleBackColor = true;
@@ -124,11 +127,12 @@
             // 
             // PizzaQuantityTextbox
             // 
-            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(117, 203);
+            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(176, 312);
+            this.PizzaQuantityTextbox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PizzaQuantityTextbox.Name = "PizzaQuantityTextbox";
             this.PizzaQuantityTextbox.ReadOnly = true;
             this.PizzaQuantityTextbox.ShortcutsEnabled = false;
-            this.PizzaQuantityTextbox.Size = new System.Drawing.Size(20, 20);
+            this.PizzaQuantityTextbox.Size = new System.Drawing.Size(28, 26);
             this.PizzaQuantityTextbox.TabIndex = 26;
             this.PizzaQuantityTextbox.TabStop = false;
             this.PizzaQuantityTextbox.Text = "1";
@@ -136,9 +140,10 @@
             // 
             // IncreaseQuantityButton
             // 
-            this.IncreaseQuantityButton.Location = new System.Drawing.Point(139, 203);
+            this.IncreaseQuantityButton.Location = new System.Drawing.Point(208, 312);
+            this.IncreaseQuantityButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IncreaseQuantityButton.Name = "IncreaseQuantityButton";
-            this.IncreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
+            this.IncreaseQuantityButton.Size = new System.Drawing.Size(24, 31);
             this.IncreaseQuantityButton.TabIndex = 25;
             this.IncreaseQuantityButton.Text = ">";
             this.IncreaseQuantityButton.UseVisualStyleBackColor = true;
@@ -146,38 +151,31 @@
             // 
             // CancelTransactionButton
             // 
-            this.CancelTransactionButton.Location = new System.Drawing.Point(331, 294);
+            this.CancelTransactionButton.Location = new System.Drawing.Point(496, 420);
+            this.CancelTransactionButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CancelTransactionButton.Name = "CancelTransactionButton";
-            this.CancelTransactionButton.Size = new System.Drawing.Size(86, 34);
+            this.CancelTransactionButton.Size = new System.Drawing.Size(129, 52);
             this.CancelTransactionButton.TabIndex = 23;
             this.CancelTransactionButton.Text = "Cancel Transaction";
             this.CancelTransactionButton.UseVisualStyleBackColor = true;
             this.CancelTransactionButton.Click += new System.EventHandler(this.CancelTransactionButton_Click);
             // 
-            // RemoveSelectedItemButton
-            // 
-            this.RemoveSelectedItemButton.Location = new System.Drawing.Point(331, 254);
-            this.RemoveSelectedItemButton.Name = "RemoveSelectedItemButton";
-            this.RemoveSelectedItemButton.Size = new System.Drawing.Size(86, 34);
-            this.RemoveSelectedItemButton.TabIndex = 22;
-            this.RemoveSelectedItemButton.Text = "Remove Selected Item";
-            this.RemoveSelectedItemButton.UseVisualStyleBackColor = true;
-            this.RemoveSelectedItemButton.Click += new System.EventHandler(this.RemoveSelectedItemButton_Click);
-            // 
             // OrderTotalTextBox
             // 
-            this.OrderTotalTextBox.Location = new System.Drawing.Point(331, 362);
+            this.OrderTotalTextBox.Location = new System.Drawing.Point(496, 557);
+            this.OrderTotalTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OrderTotalTextBox.Name = "OrderTotalTextBox";
             this.OrderTotalTextBox.ReadOnly = true;
-            this.OrderTotalTextBox.Size = new System.Drawing.Size(86, 20);
+            this.OrderTotalTextBox.Size = new System.Drawing.Size(127, 26);
             this.OrderTotalTextBox.TabIndex = 21;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 239);
+            this.label3.Location = new System.Drawing.Point(4, 368);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "Order Summary";
             // 
@@ -185,26 +183,27 @@
             // 
             this.OrderedListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OrderedListbox.FormattingEnabled = true;
-            this.OrderedListbox.ItemHeight = 15;
-            this.OrderedListbox.Location = new System.Drawing.Point(2, 254);
-            this.OrderedListbox.Margin = new System.Windows.Forms.Padding(2);
+            this.OrderedListbox.ItemHeight = 22;
+            this.OrderedListbox.Location = new System.Drawing.Point(3, 391);
             this.OrderedListbox.Name = "OrderedListbox";
-            this.OrderedListbox.Size = new System.Drawing.Size(324, 109);
+            this.OrderedListbox.Size = new System.Drawing.Size(484, 158);
             this.OrderedListbox.TabIndex = 19;
             // 
             // CurrentOrderTotalTextBox
             // 
-            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(331, 334);
+            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(496, 514);
+            this.CurrentOrderTotalTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CurrentOrderTotalTextBox.Name = "CurrentOrderTotalTextBox";
             this.CurrentOrderTotalTextBox.ReadOnly = true;
-            this.CurrentOrderTotalTextBox.Size = new System.Drawing.Size(86, 20);
+            this.CurrentOrderTotalTextBox.Size = new System.Drawing.Size(127, 26);
             this.CurrentOrderTotalTextBox.TabIndex = 18;
             // 
             // AddOrderToOrderButton
             // 
-            this.AddOrderToOrderButton.Location = new System.Drawing.Point(214, 201);
+            this.AddOrderToOrderButton.Location = new System.Drawing.Point(321, 309);
+            this.AddOrderToOrderButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddOrderToOrderButton.Name = "AddOrderToOrderButton";
-            this.AddOrderToOrderButton.Size = new System.Drawing.Size(75, 23);
+            this.AddOrderToOrderButton.Size = new System.Drawing.Size(112, 35);
             this.AddOrderToOrderButton.TabIndex = 17;
             this.AddOrderToOrderButton.Text = "Add to Order";
             this.AddOrderToOrderButton.UseVisualStyleBackColor = true;
@@ -219,18 +218,20 @@
             this.flowLayoutPanel1.Controls.Add(this.OrderConformationButton);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(881, 206);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1322, 317);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(85, 169);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(126, 259);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 3);
+            this.button2.Location = new System.Drawing.Point(4, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 27);
+            this.button2.Size = new System.Drawing.Size(120, 42);
             this.button2.TabIndex = 19;
             this.button2.Text = "&Button";
             this.button2.UseVisualStyleBackColor = false;
@@ -239,9 +240,10 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 36);
+            this.button3.Location = new System.Drawing.Point(4, 57);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 27);
+            this.button3.Size = new System.Drawing.Size(120, 42);
             this.button3.TabIndex = 20;
             this.button3.Text = "&Button";
             this.button3.UseVisualStyleBackColor = false;
@@ -250,33 +252,23 @@
             // 
             this.OrderConformationButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.OrderConformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderConformationButton.Location = new System.Drawing.Point(3, 69);
+            this.OrderConformationButton.Location = new System.Drawing.Point(4, 109);
+            this.OrderConformationButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OrderConformationButton.Name = "OrderConformationButton";
-            this.OrderConformationButton.Size = new System.Drawing.Size(80, 27);
+            this.OrderConformationButton.Size = new System.Drawing.Size(120, 42);
             this.OrderConformationButton.TabIndex = 21;
             this.OrderConformationButton.Text = "&Order";
             this.OrderConformationButton.UseVisualStyleBackColor = false;
             this.OrderConformationButton.Click += new System.EventHandler(this.OrderConformationButton_Click);
             // 
-            // ConfirmButton
-            // 
-            this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(1222, 374);
-            this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
-            this.ConfirmButton.TabIndex = 13;
-            this.ConfirmButton.Text = "&Confirm";
-            this.ConfirmButton.UseVisualStyleBackColor = false;
-            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
-            // 
             // SummaryButton
             // 
             this.SummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SummaryButton.Location = new System.Drawing.Point(3, 102);
+            this.SummaryButton.Location = new System.Drawing.Point(4, 161);
+            this.SummaryButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SummaryButton.Name = "SummaryButton";
-            this.SummaryButton.Size = new System.Drawing.Size(80, 27);
+            this.SummaryButton.Size = new System.Drawing.Size(120, 42);
             this.SummaryButton.TabIndex = 14;
             this.SummaryButton.Text = "&Summary";
             this.SummaryButton.UseVisualStyleBackColor = false;
@@ -286,9 +278,10 @@
             // 
             this.ExitSummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ExitSummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitSummaryButton.Location = new System.Drawing.Point(3, 135);
+            this.ExitSummaryButton.Location = new System.Drawing.Point(4, 213);
+            this.ExitSummaryButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ExitSummaryButton.Name = "ExitSummaryButton";
-            this.ExitSummaryButton.Size = new System.Drawing.Size(80, 27);
+            this.ExitSummaryButton.Size = new System.Drawing.Size(120, 42);
             this.ExitSummaryButton.TabIndex = 18;
             this.ExitSummaryButton.Text = "&Exit";
             this.ExitSummaryButton.UseVisualStyleBackColor = false;
@@ -298,17 +291,16 @@
             // 
             this.PizzaSizeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PizzaSizeListBox.FormattingEnabled = true;
-            this.PizzaSizeListBox.ItemHeight = 16;
+            this.PizzaSizeListBox.ItemHeight = 25;
             this.PizzaSizeListBox.Items.AddRange(new object[] {
             " 6  inch",
             " 9  inch",
             "12 inch",
             "15 inch",
             "18 inch"});
-            this.PizzaSizeListBox.Location = new System.Drawing.Point(214, 51);
-            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PizzaSizeListBox.Location = new System.Drawing.Point(321, 78);
             this.PizzaSizeListBox.Name = "PizzaSizeListBox";
-            this.PizzaSizeListBox.Size = new System.Drawing.Size(79, 132);
+            this.PizzaSizeListBox.Size = new System.Drawing.Size(116, 179);
             this.PizzaSizeListBox.TabIndex = 16;
             this.PizzaSizeListBox.SelectedIndexChanged += new System.EventHandler(this.PizzaSizeListBox_SelectedIndexChanged);
             // 
@@ -316,7 +308,7 @@
             // 
             this.PizzaTypeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PizzaTypeListBox.FormattingEnabled = true;
-            this.PizzaTypeListBox.ItemHeight = 15;
+            this.PizzaTypeListBox.ItemHeight = 22;
             this.PizzaTypeListBox.Items.AddRange(new object[] {
             "Margherita Pizza",
             "Hawaiian Pizza",
@@ -331,48 +323,65 @@
             "Buffalo Pizza",
             "Ham and Cheese Pizza",
             "3-Guys-Special-Pizza"});
-            this.PizzaTypeListBox.Location = new System.Drawing.Point(44, 51);
-            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PizzaTypeListBox.Location = new System.Drawing.Point(66, 78);
             this.PizzaTypeListBox.Name = "PizzaTypeListBox";
-            this.PizzaTypeListBox.Size = new System.Drawing.Size(166, 139);
+            this.PizzaTypeListBox.Size = new System.Drawing.Size(247, 202);
             this.PizzaTypeListBox.TabIndex = 15;
             this.PizzaTypeListBox.SelectedIndexChanged += new System.EventHandler(this.PizzaTypeListBox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 25);
+            this.label1.Location = new System.Drawing.Point(62, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Pizza type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 25);
+            this.label2.Location = new System.Drawing.Point(312, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(121, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Pizza sizes& cost";
+            // 
+            // ConfirmButton
+            // 
+            this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmButton.Location = new System.Drawing.Point(1833, 575);
+            this.ConfirmButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(120, 42);
+            this.ConfirmButton.TabIndex = 13;
+            this.ConfirmButton.Text = "&Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = false;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(1142, 123);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(1713, 189);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(160, 238);
+            this.listBox1.Size = new System.Drawing.Size(238, 364);
             this.listBox1.TabIndex = 1;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1441, 450);
+            this.ClientSize = new System.Drawing.Size(1924, 692);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ConfirmButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "3 Guys Pizza";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -403,7 +412,6 @@
         private System.Windows.Forms.ListBox OrderedListbox;
         private System.Windows.Forms.TextBox OrderTotalTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button RemoveSelectedItemButton;
         private System.Windows.Forms.Button CancelTransactionButton;
         private System.Windows.Forms.Button DecreaseQuantityButton;
         private System.Windows.Forms.TextBox PizzaQuantityTextbox;
