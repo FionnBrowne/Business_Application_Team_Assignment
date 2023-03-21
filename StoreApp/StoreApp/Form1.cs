@@ -282,29 +282,9 @@ namespace StoreApp
             }
         }
 
-
-
-        private void readPrices()
-        {
-            String file = "";
-
-            String[] allRows, oneRow;
-
-            allRows = File.ReadAllLines(file);  
-
-
-            for (int row = 0; row < allRows.Length; row++)
-            {
-                oneRow = allRows[row].Split(',');
-                
-
-                for (int col = 0; col < allRows.Length; col++)
-                {
-                    PizzaSizeCost[row, col] = decimal.Parse(oneRow[col]);
-
-
-                }
-            }
+        
         }
-    }
+
+
 }
+    
