@@ -38,16 +38,12 @@ namespace StoreApp
             this.Close();
         }
 
-        //-------------------------------------------------------------
-        // ADD IN OLD CODE 
-        // ------------------------------------------------------------
         private void readStock()
         {
             StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
             String file = "StockList.txt";
-            String[] allRows, oneRow;
-            allRows = File.ReadAllLines(file);
+            String[] allRows = File.ReadAllLines(file);
             StockListbox.Items.Clear();
 
             // Define the PizzaSizeCost array with enough rows and columns
@@ -55,27 +51,20 @@ namespace StoreApp
 
             for (int row = 0; row < allRows.Length; row++)
             {
-                oneRow = allRows[row].Split(',');
+                string[] oneRow = allRows[row].Split(',');
 
-                // Make sure the oneRow array has at least 5 values before trying to parse them
-                if (oneRow.Length >= 5)
+                // Parse the values to decimals and store them in the PizzaSizeCost array
+                for (int col = 0; col < 5; col++)
                 {
-                    // Parse the values to decimals and store them in the PizzaSizeCost array
-                    decimal value1, value2, value3, value4, value5;
-          
-                    if (decimal.TryParse(oneRow[0], out value1) && decimal.TryParse(oneRow[1], out value2) && decimal.TryParse(oneRow[2], out value3) && decimal.TryParse(oneRow[3], out value4) && decimal.TryParse(oneRow[4], out value5))
+                    decimal value;
+                    if (decimal.TryParse(oneRow[col], out value))
                     {
-                        PizzaSizeCost[row, 0] = value1;
-                        PizzaSizeCost[row, 1] = value2;
-                        PizzaSizeCost[row, 2] = value3;
-                        PizzaSizeCost[row, 3] = value4;
-                        PizzaSizeCost[row, 4] = value5;
-
-
-                        // Add the values to the listBox2 control
-                        StockListbox.Items.Add(string.Format("{0} {1} {2} {3} {4}", value1, value2, value3, value4, value5));
+                        PizzaSizeCost[row, col] = value;
                     }
                 }
+
+                // Add the values to the listBox2 control
+                StockListbox.Items.Add(string.Join(" ", oneRow));
             }
         }
     }
