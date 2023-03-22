@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ConfirmButton = new System.Windows.Forms.Button();
             this.QuantityLabel = new System.Windows.Forms.Label();
             this.DecreaseQuantityButton = new System.Windows.Forms.Button();
             this.PizzaQuantityTextbox = new System.Windows.Forms.TextBox();
@@ -52,25 +53,24 @@
             this.PizzaTypeListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ConfirmButton = new System.Windows.Forms.Button();
             this.SearchResultListBox = new System.Windows.Forms.ListBox();
             this.SearchGroupBox = new System.Windows.Forms.GroupBox();
-            this.SearchTypeGroupBox = new System.Windows.Forms.GroupBox();
-            this.SearchDetailsPanel = new System.Windows.Forms.Panel();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
-            this.TrxNumSearchRadioButton = new System.Windows.Forms.RadioButton();
-            this.DateSearchRadioButton = new System.Windows.Forms.RadioButton();
-            this.SearchLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.ClearSearchButton = new System.Windows.Forms.Button();
-            this.BookingNumberLabel = new System.Windows.Forms.Label();
-            this.DateLabel = new System.Windows.Forms.Label();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchDetailsPanel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.BookingNumberLabel = new System.Windows.Forms.Label();
+            this.SearchTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.DateSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.TrxNumSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SearchGroupBox.SuspendLayout();
-            this.SearchTypeGroupBox.SuspendLayout();
             this.SearchDetailsPanel.SuspendLayout();
+            this.SearchTypeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,6 +118,18 @@
             this.label4.Size = new System.Drawing.Size(142, 16);
             this.label4.TabIndex = 29;
             this.label4.Text = "Total Transaction Cost";
+            // 
+            // ConfirmButton
+            // 
+            this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmButton.Location = new System.Drawing.Point(885, 163);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
+            this.ConfirmButton.TabIndex = 13;
+            this.ConfirmButton.Text = "&Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = false;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // QuantityLabel
             // 
@@ -354,18 +366,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Pizza sizes";
             // 
-            // ConfirmButton
-            // 
-            this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(885, 163);
-            this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
-            this.ConfirmButton.TabIndex = 13;
-            this.ConfirmButton.Text = "&Confirm";
-            this.ConfirmButton.UseVisualStyleBackColor = false;
-            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
-            // 
             // SearchResultListBox
             // 
             this.SearchResultListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -393,6 +393,70 @@
             this.SearchGroupBox.TabStop = false;
             this.SearchGroupBox.Text = "Search";
             // 
+            // ClearSearchButton
+            // 
+            this.ClearSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClearSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearSearchButton.Location = new System.Drawing.Point(318, 95);
+            this.ClearSearchButton.Name = "ClearSearchButton";
+            this.ClearSearchButton.Size = new System.Drawing.Size(80, 27);
+            this.ClearSearchButton.TabIndex = 23;
+            this.ClearSearchButton.Text = "&Clear";
+            this.ClearSearchButton.UseVisualStyleBackColor = false;
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(227, 18);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(139, 16);
+            this.SearchLabel.TabIndex = 6;
+            this.SearchLabel.Text = "Enter details below";
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(192, 55);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(207, 22);
+            this.SearchTextBox.TabIndex = 5;
+            // 
+            // SearchDetailsPanel
+            // 
+            this.SearchDetailsPanel.Controls.Add(this.label6);
+            this.SearchDetailsPanel.Controls.Add(this.DateLabel);
+            this.SearchDetailsPanel.Controls.Add(this.BookingNumberLabel);
+            this.SearchDetailsPanel.Location = new System.Drawing.Point(23, 137);
+            this.SearchDetailsPanel.Name = "SearchDetailsPanel";
+            this.SearchDetailsPanel.Size = new System.Drawing.Size(145, 247);
+            this.SearchDetailsPanel.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(64, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Total Cost";
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(41, 106);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(101, 16);
+            this.DateLabel.TabIndex = 25;
+            this.DateLabel.Text = "Booking Date";
+            // 
+            // BookingNumberLabel
+            // 
+            this.BookingNumberLabel.AutoSize = true;
+            this.BookingNumberLabel.Location = new System.Drawing.Point(20, 16);
+            this.BookingNumberLabel.Name = "BookingNumberLabel";
+            this.BookingNumberLabel.Size = new System.Drawing.Size(122, 16);
+            this.BookingNumberLabel.TabIndex = 24;
+            this.BookingNumberLabel.Text = "Booking Number";
+            // 
             // SearchTypeGroupBox
             // 
             this.SearchTypeGroupBox.Controls.Add(this.DateSearchRadioButton);
@@ -405,22 +469,16 @@
             this.SearchTypeGroupBox.TabStop = false;
             this.SearchTypeGroupBox.Text = "Select a Search Criteria";
             // 
-            // SearchDetailsPanel
+            // DateSearchRadioButton
             // 
-            this.SearchDetailsPanel.Controls.Add(this.label6);
-            this.SearchDetailsPanel.Controls.Add(this.DateLabel);
-            this.SearchDetailsPanel.Controls.Add(this.BookingNumberLabel);
-            this.SearchDetailsPanel.Location = new System.Drawing.Point(23, 137);
-            this.SearchDetailsPanel.Name = "SearchDetailsPanel";
-            this.SearchDetailsPanel.Size = new System.Drawing.Size(145, 247);
-            this.SearchDetailsPanel.TabIndex = 4;
-            // 
-            // SearchTextBox
-            // 
-            this.SearchTextBox.Location = new System.Drawing.Point(192, 55);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(207, 22);
-            this.SearchTextBox.TabIndex = 5;
+            this.DateSearchRadioButton.AutoSize = true;
+            this.DateSearchRadioButton.Location = new System.Drawing.Point(91, 26);
+            this.DateSearchRadioButton.Name = "DateSearchRadioButton";
+            this.DateSearchRadioButton.Size = new System.Drawing.Size(54, 20);
+            this.DateSearchRadioButton.TabIndex = 1;
+            this.DateSearchRadioButton.TabStop = true;
+            this.DateSearchRadioButton.Text = "Date";
+            this.DateSearchRadioButton.UseVisualStyleBackColor = true;
             // 
             // TrxNumSearchRadioButton
             // 
@@ -433,26 +491,6 @@
             this.TrxNumSearchRadioButton.Text = "Trx Num";
             this.TrxNumSearchRadioButton.UseVisualStyleBackColor = true;
             // 
-            // DateSearchRadioButton
-            // 
-            this.DateSearchRadioButton.AutoSize = true;
-            this.DateSearchRadioButton.Location = new System.Drawing.Point(91, 26);
-            this.DateSearchRadioButton.Name = "DateSearchRadioButton";
-            this.DateSearchRadioButton.Size = new System.Drawing.Size(54, 20);
-            this.DateSearchRadioButton.TabIndex = 1;
-            this.DateSearchRadioButton.TabStop = true;
-            this.DateSearchRadioButton.Text = "Date";
-            this.DateSearchRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // SearchLabel
-            // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Location = new System.Drawing.Point(227, 18);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(139, 16);
-            this.SearchLabel.TabIndex = 6;
-            this.SearchLabel.Text = "Enter details below";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -463,44 +501,6 @@
             this.button1.TabIndex = 22;
             this.button1.Text = "&Search";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // ClearSearchButton
-            // 
-            this.ClearSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClearSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearSearchButton.Location = new System.Drawing.Point(318, 95);
-            this.ClearSearchButton.Name = "ClearSearchButton";
-            this.ClearSearchButton.Size = new System.Drawing.Size(80, 27);
-            this.ClearSearchButton.TabIndex = 23;
-            this.ClearSearchButton.Text = "&Clear";
-            this.ClearSearchButton.UseVisualStyleBackColor = false;
-            // 
-            // BookingNumberLabel
-            // 
-            this.BookingNumberLabel.AutoSize = true;
-            this.BookingNumberLabel.Location = new System.Drawing.Point(20, 16);
-            this.BookingNumberLabel.Name = "BookingNumberLabel";
-            this.BookingNumberLabel.Size = new System.Drawing.Size(122, 16);
-            this.BookingNumberLabel.TabIndex = 24;
-            this.BookingNumberLabel.Text = "Booking Number";
-            // 
-            // DateLabel
-            // 
-            this.DateLabel.AutoSize = true;
-            this.DateLabel.Location = new System.Drawing.Point(41, 106);
-            this.DateLabel.Name = "DateLabel";
-            this.DateLabel.Size = new System.Drawing.Size(101, 16);
-            this.DateLabel.TabIndex = 25;
-            this.DateLabel.Text = "Booking Date";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(64, 205);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 16);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Total Cost";
             // 
             // MainForm
             // 
@@ -518,10 +518,10 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.SearchGroupBox.ResumeLayout(false);
             this.SearchGroupBox.PerformLayout();
-            this.SearchTypeGroupBox.ResumeLayout(false);
-            this.SearchTypeGroupBox.PerformLayout();
             this.SearchDetailsPanel.ResumeLayout(false);
             this.SearchDetailsPanel.PerformLayout();
+            this.SearchTypeGroupBox.ResumeLayout(false);
+            this.SearchTypeGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }

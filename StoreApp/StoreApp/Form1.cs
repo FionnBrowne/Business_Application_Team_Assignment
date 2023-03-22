@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace StoreApp
 {
@@ -251,11 +252,25 @@ namespace StoreApp
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             string[] array = new string[OrderedListbox.Items.Count];
+            DialogResult Result;
+            List<string> lt = new List<string>();
+            string str = null, OrderSummary;
+            DateTime dateTime = DateTime.Now;
+            string OrderNumber;
 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // need to write order and date to file
             if (OrderedListbox.Items.Count != 0)
             {
-                
-                DialogResult = MessageBox.Show("Are you sure you would like to Save and Process the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                foreach (var item in OrderedListbox.Items)
+                {  
+                    lt.Add(item.ToString()); //store the items in the list
+                    str += item + "\r\n";    //store the items in the string
+                }
+                OrderNumber = GenerateRandomNumber(MIN_RANNUM, MAX_RANNUM);
+                OrderSummary = "Order Number: " + OrderNumber + "\nOrder Date: " + dateTime + "\nOrder Contents: \n" + str;
+                DialogResult = MessageBox.Show(OrderSummary, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //DialogResult = MessageBox.Show("Are you sure you would like to Save and Process the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (DialogResult == DialogResult.Yes)
                 {
@@ -268,7 +283,7 @@ namespace StoreApp
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
                         //adding time to transaction
-                        DateTime dateTime = DateTime.UtcNow.Date;
+                        
                         OutputFile.WriteLine(dateTime.ToString());
                         // OutputFile.WriteLine(txno
                         //   OutputFile.WriteLine(DateBoldEventArgs
