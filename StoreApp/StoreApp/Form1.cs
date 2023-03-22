@@ -20,7 +20,7 @@ namespace StoreApp
        
         
         string Pizza;
-        const int INCREMENT = 10, FORMSTARTWIDTH = 1100, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1406;
+        const int INCREMENT = 10, FORMSTARTWIDTH = 1100, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1406, MIN_RANNUM = 100000, MAX_RANNUM = 999999;
         Boolean FormWidthExpanded = true;
         decimal[,] PizzaSizeCost = new decimal[13, 5] {
             { 7.50m, 10.50m, 13.50m, 15.50m, 17.50m},
@@ -40,7 +40,7 @@ namespace StoreApp
         {
             InitializeComponent();
         }
-
+        // what is this
         decimal TotalTransactionCostForTextbox { get;set; }
         decimal TotalTranactionCost { get;set; }
         int TransactionCount { get; set; }
@@ -117,10 +117,6 @@ namespace StoreApp
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void CancelTransactionButton_Click(object sender, EventArgs e)
         {
@@ -271,6 +267,9 @@ namespace StoreApp
 
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
+                        //adding time to transaction
+                        DateTime dateTime = DateTime.UtcNow.Date;
+                        OutputFile.WriteLine(dateTime.ToString());
                         // OutputFile.WriteLine(txno
                         //   OutputFile.WriteLine(DateBoldEventArgs
 
@@ -290,6 +289,7 @@ namespace StoreApp
                         }
                         OutputFile.WriteLine();//end tx
 
+
                         ChangeFormWidth(false);
                         OutputFile.Close();
                     }
@@ -304,6 +304,10 @@ namespace StoreApp
                 MessageBox.Show("Please make an order before proceeding", "No Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /*
+         *Methods 
+         * 
+         */
         private void ChangeFormWidth(Boolean Expand)
         {
             if (Expand)
@@ -333,9 +337,19 @@ namespace StoreApp
                 }
             }
         }
+        //random Number Generator
+        private String GenerateRandomNumber(int Min, int Max)
+        {
+            Random MyRandomObject;
+            int RandomNumber;
 
-        
+            MyRandomObject = new Random();
+            RandomNumber = MyRandomObject.Next(Min, Max);
+
+            return RandomNumber.ToString();
         }
+
+    }
 
 
 }
