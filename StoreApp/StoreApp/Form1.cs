@@ -107,18 +107,12 @@ namespace StoreApp
                 MessageBox.Show("A Pizza Size is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 PizzaTypeListBox.Focus();
             }
-
-            
-            
-              
+       
         }
         private void ExitSummaryButton_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
-
-
         private void CancelTransactionButton_Click(object sender, EventArgs e)
         {
             //clears all the transaction
@@ -255,7 +249,7 @@ namespace StoreApp
             DialogResult Result;
             List<string> lt = new List<string>();
             string str = null, OrderSummary;
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = DateTime.UtcNow.Date;
             string OrderNumber;
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,7 +264,6 @@ namespace StoreApp
                 OrderNumber = GenerateRandomNumber(MIN_RANNUM, MAX_RANNUM);
                 OrderSummary = "Order Number: " + OrderNumber + "\nOrder Date: " + dateTime + "\nOrder Contents: \n" + str;
                 DialogResult = MessageBox.Show(OrderSummary, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //DialogResult = MessageBox.Show("Are you sure you would like to Save and Process the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (DialogResult == DialogResult.Yes)
                 {
