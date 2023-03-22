@@ -53,15 +53,32 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.SearchResultListBox = new System.Windows.Forms.ListBox();
+            this.SearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.SearchTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.SearchDetailsPanel = new System.Windows.Forms.Panel();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.TrxNumSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.DateSearchRadioButton = new System.Windows.Forms.RadioButton();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ClearSearchButton = new System.Windows.Forms.Button();
+            this.BookingNumberLabel = new System.Windows.Forms.Label();
+            this.DateLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.SearchGroupBox.SuspendLayout();
+            this.SearchTypeGroupBox.SuspendLayout();
+            this.SearchDetailsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.ConfirmButton);
             this.panel1.Controls.Add(this.QuantityLabel);
             this.panel1.Controls.Add(this.DecreaseQuantityButton);
             this.panel1.Controls.Add(this.PizzaQuantityTextbox);
@@ -86,33 +103,36 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 337);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(423, 331);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.Size = new System.Drawing.Size(153, 16);
             this.label5.TabIndex = 30;
             this.label5.Text = "Current Transaction Cost";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(423, 365);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(423, 359);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.Size = new System.Drawing.Size(142, 16);
             this.label4.TabIndex = 29;
             this.label4.Text = "Total Transaction Cost";
             // 
             // QuantityLabel
             // 
             this.QuantityLabel.AutoSize = true;
+            this.QuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuantityLabel.Location = new System.Drawing.Point(3, 206);
             this.QuantityLabel.Name = "QuantityLabel";
-            this.QuantityLabel.Size = new System.Drawing.Size(91, 13);
+            this.QuantityLabel.Size = new System.Drawing.Size(113, 16);
             this.QuantityLabel.TabIndex = 28;
             this.QuantityLabel.Text = "Number Of Pizzas";
             // 
             // DecreaseQuantityButton
             // 
-            this.DecreaseQuantityButton.Location = new System.Drawing.Point(100, 203);
+            this.DecreaseQuantityButton.Location = new System.Drawing.Point(122, 203);
             this.DecreaseQuantityButton.Name = "DecreaseQuantityButton";
             this.DecreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
             this.DecreaseQuantityButton.TabIndex = 27;
@@ -122,7 +142,7 @@
             // 
             // PizzaQuantityTextbox
             // 
-            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(117, 203);
+            this.PizzaQuantityTextbox.Location = new System.Drawing.Point(139, 203);
             this.PizzaQuantityTextbox.Name = "PizzaQuantityTextbox";
             this.PizzaQuantityTextbox.ReadOnly = true;
             this.PizzaQuantityTextbox.ShortcutsEnabled = false;
@@ -134,7 +154,7 @@
             // 
             // IncreaseQuantityButton
             // 
-            this.IncreaseQuantityButton.Location = new System.Drawing.Point(139, 203);
+            this.IncreaseQuantityButton.Location = new System.Drawing.Point(161, 203);
             this.IncreaseQuantityButton.Name = "IncreaseQuantityButton";
             this.IncreaseQuantityButton.Size = new System.Drawing.Size(16, 20);
             this.IncreaseQuantityButton.TabIndex = 25;
@@ -154,7 +174,7 @@
             // 
             // OrderTotalTextBox
             // 
-            this.OrderTotalTextBox.Location = new System.Drawing.Point(331, 362);
+            this.OrderTotalTextBox.Location = new System.Drawing.Point(331, 356);
             this.OrderTotalTextBox.Name = "OrderTotalTextBox";
             this.OrderTotalTextBox.ReadOnly = true;
             this.OrderTotalTextBox.Size = new System.Drawing.Size(86, 20);
@@ -163,9 +183,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 239);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 236);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.Size = new System.Drawing.Size(101, 16);
             this.label3.TabIndex = 20;
             this.label3.Text = "Order Summary";
             // 
@@ -175,14 +196,14 @@
             this.OrderedListbox.FormattingEnabled = true;
             this.OrderedListbox.ItemHeight = 15;
             this.OrderedListbox.Location = new System.Drawing.Point(2, 254);
-            this.OrderedListbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OrderedListbox.Margin = new System.Windows.Forms.Padding(2);
             this.OrderedListbox.Name = "OrderedListbox";
             this.OrderedListbox.Size = new System.Drawing.Size(324, 124);
             this.OrderedListbox.TabIndex = 19;
             // 
             // CurrentOrderTotalTextBox
             // 
-            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(331, 334);
+            this.CurrentOrderTotalTextBox.Location = new System.Drawing.Point(331, 328);
             this.CurrentOrderTotalTextBox.Name = "CurrentOrderTotalTextBox";
             this.CurrentOrderTotalTextBox.ReadOnly = true;
             this.CurrentOrderTotalTextBox.Size = new System.Drawing.Size(86, 20);
@@ -282,7 +303,7 @@
             "15 inch",
             "18 inch"});
             this.PizzaSizeListBox.Location = new System.Drawing.Point(214, 51);
-            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2);
             this.PizzaSizeListBox.Name = "PizzaSizeListBox";
             this.PizzaSizeListBox.Size = new System.Drawing.Size(79, 100);
             this.PizzaSizeListBox.TabIndex = 16;
@@ -308,7 +329,7 @@
             "Ham and Cheese Pizza",
             "3-Guys-Special-Pizza"});
             this.PizzaTypeListBox.Location = new System.Drawing.Point(44, 51);
-            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2);
             this.PizzaTypeListBox.Name = "PizzaTypeListBox";
             this.PizzaTypeListBox.Size = new System.Drawing.Size(166, 109);
             this.PizzaTypeListBox.TabIndex = 15;
@@ -317,26 +338,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(41, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Pizza type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(208, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Pizza sizes& cost";
+            this.label2.Text = "Pizza sizes";
             // 
             // ConfirmButton
             // 
             this.ConfirmButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(1222, 374);
+            this.ConfirmButton.Location = new System.Drawing.Point(885, 163);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(80, 27);
             this.ConfirmButton.TabIndex = 13;
@@ -344,22 +367,149 @@
             this.ConfirmButton.UseVisualStyleBackColor = false;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
-            // listBox1
+            // SearchResultListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(1142, 123);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(160, 238);
-            this.listBox1.TabIndex = 1;
+            this.SearchResultListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchResultListBox.FormattingEnabled = true;
+            this.SearchResultListBox.ItemHeight = 16;
+            this.SearchResultListBox.Location = new System.Drawing.Point(191, 137);
+            this.SearchResultListBox.Name = "SearchResultListBox";
+            this.SearchResultListBox.Size = new System.Drawing.Size(207, 244);
+            this.SearchResultListBox.TabIndex = 1;
+            // 
+            // SearchGroupBox
+            // 
+            this.SearchGroupBox.Controls.Add(this.ClearSearchButton);
+            this.SearchGroupBox.Controls.Add(this.SearchLabel);
+            this.SearchGroupBox.Controls.Add(this.SearchTextBox);
+            this.SearchGroupBox.Controls.Add(this.SearchDetailsPanel);
+            this.SearchGroupBox.Controls.Add(this.SearchTypeGroupBox);
+            this.SearchGroupBox.Controls.Add(this.SearchResultListBox);
+            this.SearchGroupBox.Controls.Add(this.button1);
+            this.SearchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchGroupBox.Location = new System.Drawing.Point(1082, 52);
+            this.SearchGroupBox.Name = "SearchGroupBox";
+            this.SearchGroupBox.Size = new System.Drawing.Size(412, 393);
+            this.SearchGroupBox.TabIndex = 2;
+            this.SearchGroupBox.TabStop = false;
+            this.SearchGroupBox.Text = "Search";
+            // 
+            // SearchTypeGroupBox
+            // 
+            this.SearchTypeGroupBox.Controls.Add(this.DateSearchRadioButton);
+            this.SearchTypeGroupBox.Controls.Add(this.TrxNumSearchRadioButton);
+            this.SearchTypeGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTypeGroupBox.Location = new System.Drawing.Point(23, 21);
+            this.SearchTypeGroupBox.Name = "SearchTypeGroupBox";
+            this.SearchTypeGroupBox.Size = new System.Drawing.Size(162, 59);
+            this.SearchTypeGroupBox.TabIndex = 3;
+            this.SearchTypeGroupBox.TabStop = false;
+            this.SearchTypeGroupBox.Text = "Select a Search Criteria";
+            // 
+            // SearchDetailsPanel
+            // 
+            this.SearchDetailsPanel.Controls.Add(this.label6);
+            this.SearchDetailsPanel.Controls.Add(this.DateLabel);
+            this.SearchDetailsPanel.Controls.Add(this.BookingNumberLabel);
+            this.SearchDetailsPanel.Location = new System.Drawing.Point(23, 137);
+            this.SearchDetailsPanel.Name = "SearchDetailsPanel";
+            this.SearchDetailsPanel.Size = new System.Drawing.Size(145, 247);
+            this.SearchDetailsPanel.TabIndex = 4;
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(192, 55);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(207, 22);
+            this.SearchTextBox.TabIndex = 5;
+            // 
+            // TrxNumSearchRadioButton
+            // 
+            this.TrxNumSearchRadioButton.AutoSize = true;
+            this.TrxNumSearchRadioButton.Location = new System.Drawing.Point(6, 26);
+            this.TrxNumSearchRadioButton.Name = "TrxNumSearchRadioButton";
+            this.TrxNumSearchRadioButton.Size = new System.Drawing.Size(75, 20);
+            this.TrxNumSearchRadioButton.TabIndex = 0;
+            this.TrxNumSearchRadioButton.TabStop = true;
+            this.TrxNumSearchRadioButton.Text = "Trx Num";
+            this.TrxNumSearchRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // DateSearchRadioButton
+            // 
+            this.DateSearchRadioButton.AutoSize = true;
+            this.DateSearchRadioButton.Location = new System.Drawing.Point(91, 26);
+            this.DateSearchRadioButton.Name = "DateSearchRadioButton";
+            this.DateSearchRadioButton.Size = new System.Drawing.Size(54, 20);
+            this.DateSearchRadioButton.TabIndex = 1;
+            this.DateSearchRadioButton.TabStop = true;
+            this.DateSearchRadioButton.Text = "Date";
+            this.DateSearchRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(227, 18);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(139, 16);
+            this.SearchLabel.TabIndex = 6;
+            this.SearchLabel.Text = "Enter details below";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(192, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 27);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "&Search";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ClearSearchButton
+            // 
+            this.ClearSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClearSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearSearchButton.Location = new System.Drawing.Point(318, 95);
+            this.ClearSearchButton.Name = "ClearSearchButton";
+            this.ClearSearchButton.Size = new System.Drawing.Size(80, 27);
+            this.ClearSearchButton.TabIndex = 23;
+            this.ClearSearchButton.Text = "&Clear";
+            this.ClearSearchButton.UseVisualStyleBackColor = false;
+            // 
+            // BookingNumberLabel
+            // 
+            this.BookingNumberLabel.AutoSize = true;
+            this.BookingNumberLabel.Location = new System.Drawing.Point(20, 16);
+            this.BookingNumberLabel.Name = "BookingNumberLabel";
+            this.BookingNumberLabel.Size = new System.Drawing.Size(122, 16);
+            this.BookingNumberLabel.TabIndex = 24;
+            this.BookingNumberLabel.Text = "Booking Number";
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(41, 106);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(101, 16);
+            this.DateLabel.TabIndex = 25;
+            this.DateLabel.Text = "Booking Date";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(64, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Total Cost";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 450);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(1532, 482);
+            this.Controls.Add(this.SearchGroupBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ConfirmButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "3 Guys Pizza";
@@ -367,6 +517,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.SearchGroupBox.ResumeLayout(false);
+            this.SearchGroupBox.PerformLayout();
+            this.SearchTypeGroupBox.ResumeLayout(false);
+            this.SearchTypeGroupBox.PerformLayout();
+            this.SearchDetailsPanel.ResumeLayout(false);
+            this.SearchDetailsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -398,7 +554,19 @@
         private System.Windows.Forms.Label QuantityLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox SearchResultListBox;
+        private System.Windows.Forms.GroupBox SearchGroupBox;
+        private System.Windows.Forms.GroupBox SearchTypeGroupBox;
+        private System.Windows.Forms.Panel SearchDetailsPanel;
+        private System.Windows.Forms.Button ClearSearchButton;
+        private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.Label BookingNumberLabel;
+        private System.Windows.Forms.RadioButton DateSearchRadioButton;
+        private System.Windows.Forms.RadioButton TrxNumSearchRadioButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
