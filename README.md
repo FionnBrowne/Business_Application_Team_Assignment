@@ -11,7 +11,7 @@ Creating a c# application that could be used by a store for stock, inventory and
 
 # What is this repository
 ***
-## This repository contains 
+## This repository contains our team work to make a pizzeria application using skills we picked up on previous assignments and class work. We used using Visual Studio 2022 to develop this application and wrote it in c#  .net.
 
     
 ### 
@@ -23,26 +23,27 @@ Creating a c# application that could be used by a store for stock, inventory and
 
 # Files:
 ***
-### There are a few files contained in this project which will reflect the agile approach to this project.
+### There are a few files contained in this project which will reflect the agile approach to this project. There are also two .txt files which contain Stock quantity and transaction history.
 
-## Gantt... file name
+## Gantt chart... User story name and user time needed to accomplish key features
 ***
 ### 
 
-```python
-# Load the data set from github url.
-data = pd.read_csv("https://raw.githubusercontent.com/FionnBrowne/Emerging-Technologies/main/Datasets_CSV/winequality-red.csv", sep=";")
-
-```
 
 ## User stories excel
 ***
-### displaying the weighting of the application key user stories on a difficulty scale of 1 - ...
+### displaying the weighting of the application key user stories on a difficulty scale of 1 - 10...
 
-## spare
+## StoreApp.sln
 ***
-### It is a Jupyter Notebook that contains three Sickit algothrims that use the datasets we import to perform such tasks as linear regression & correlation. It goes into detail about Sickit-learn and details on its use.
-
+### Contains tthe text-based information the environment uses to find and load the name-value parameters for the persisted data and the project VSPackages it references. VisualStudio uses this to deploy the solution
+Here is an exaple of c# code
+```c#
+//Random Number generator
+var random = new Random();
+var value = random.Next();
+return value;
+```
 
 
 
@@ -55,7 +56,8 @@ data = pd.read_csv("https://raw.githubusercontent.com/FionnBrowne/Emerging-Techn
 # Requirements
 ***
 1. [Github](https://github.com/) account .
-2. Download [Visual Studio](https://docs.anaconda.com/anaconda/install/index.html).
+2. Download [Visual Studio](https://visualstudio.microsoft.com/).
+3. [Git](https://git-scm.com/downloads) in order to clone the project.
 
 # Getting ready.
 ***
@@ -68,24 +70,22 @@ data = pd.read_csv("https://raw.githubusercontent.com/FionnBrowne/Emerging-Techn
 ## How to run
 ***
 1. Select the play or launch icon in the top middle to run.
-2. Now put in quantity amount ... etc
+2. Now put in the pizza type wanted.
+3. Select the size you want for the pizza/s.
+4. Enter the quantity of pizzas of this type you want.
+5.  Select add to order.
+6.  You can now add more pizza types to the order also.
+7.  A conformiation icon will come up on order click.
+8.  You can search your order by date or by the order number.
+9.  You can also track the amount of pizzas sold and money transaction by selecting Summary.
 
 # Possible fixes for issues ???
 1. Re-download this repository and make sure your on the right file.
 2. Check if the approipate visual studio is installed with extensions.
 3. delete the previous files and re launch the program.
 
-# Exploring
-***
-## You can mess around with the variables to see how it effects the visulization & data. Ex:  
-
-```python
-def f(x):
-    return x*x
-
-```
 
 # Learning outcome / conclusion
 ***
 
-## This project helped the group to understand and display their knowlege of the c# language and using the visual aid of visual studio to render the application to create a clean and usefull application.
+## This project helped the group to understand and display their knowlege of the c# language and using the visual aid of visual studio to render the application to create a clean and usefull application. With the use of agile we kept to a timely manner with each feature development and had a clear goal in mind with what steps we should develop the application.
