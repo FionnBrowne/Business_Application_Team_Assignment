@@ -48,6 +48,8 @@ namespace StoreApp
         int TotalPizzaSold { get; set; }
         int AvailableStock { get; set; }
 
+        int FILELENGTH = 5;
+
         private void SummaryButton_Click(object sender, EventArgs e)
         {
             var newform = new SummaryForm();
@@ -78,14 +80,16 @@ namespace StoreApp
                         //Gets the item selected from pizza listbox & inch
                         string PizzaSelected = PizzaTypeListBox.SelectedItem.ToString();
                         string SizeSelected = PizzaSizeListBox.SelectedItem.ToString();
-                        string TotalPizza = CurrentOrderTotalTextBox.Text;
+                        decimal TotalPizza = decimal.Parse(CurrentOrderTotalTextBox.Text);
+
+                        TotalPizza = TotalPizza / int.Parse(PizzaQuantityTextbox.Text);
+
+                        //Adds it into the new listbox
+                        OrderedListbox.Items.Add(PizzaSelected + "           " + SizeSelected + "           " + TotalPizza.ToString("c2"));
 
                         //Shows the total transaction cost
                         TotalTransactionCostForTextbox += PizzaPrice;
                         OrderTotalTextBox.Text = TotalTransactionCostForTextbox.ToString("C2");
-
-                        //Adds it into the new listbox
-                        OrderedListbox.Items.Add(PizzaSelected + "           " + SizeSelected + "           " + TotalPizza);
 
                         OrderedListbox.SelectedIndex = OrderedListbox.SelectedIndex + 1;
                         //Adds order total
@@ -179,6 +183,87 @@ namespace StoreApp
             ChangeFormWidth(true);
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string TransactionNum, TransactionDate;
+            Boolean TrxFound = false;
+
+            if (SearchTextBox.Text != "")
+            {
+                SearchResultListBox.Items.Clear();
+
+                string SearchString = SearchTextBox.Text;
+                int QuantityPizza;
+
+                try
+                {
+                    StreamReader InPutFile = File.OpenText("TransactionSummary.txt");
+
+                    if (TrxNumSearchRadioButton.Checked)
+                    {
+                        while (!InPutFile.EndOfStream || !TrxFound)
+                        {
+                            TransactionNum = InPutFile.ReadLine();
+
+                            if (TransactionNum.Equals(SearchString))
+                            {
+                                SearchResultListBox.Items.Add(TransactionNum);
+                                SearchResultListBox.Items.Add(InPutFile.ReadLine());
+                                QuantityPizza = int.Parse(InPutFile.ReadLine());
+                                SearchResultListBox.Items.Add(QuantityPizza);
+                                SearchResultListBox.Items.Add(InPutFile.ReadLine());
+                                SearchResultListBox.Items.Add(InPutFile.ReadLine());
+                                for (int i = 0; i < QuantityPizza; i++)
+                                {
+                                    SearchResultListBox.Items.Add(InPutFile.ReadLine());
+                                }
+                                TrxFound = true;
+                            }
+                            else
+                            {
+                                for (int i = 0; i < FILELENGTH; i++)
+                                {
+                                    InPutFile.ReadLine();
+                                }
+                            }
+                        }
+                        InPutFile.Close();
+
+                    }
+                    else
+                    {
+                        while (!InPutFile.EndOfStream)
+                        {
+                            TransactionNum = InPutFile.ReadLine();
+                            TransactionDate = InPutFile.ReadLine();
+
+                            if (TransactionDate.Equals(SearchString))
+                            {
+                                SearchResultListBox.Items.Add(TransactionNum);
+                                SearchResultListBox.Items.Add(TransactionDate);
+                            }
+                            else
+                            {
+                                for (int i = 0; i < FILELENGTH; i++)
+                                {
+                                    InPutFile.ReadLine();
+                                }
+                            }
+                        }
+                        InPutFile.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("A fatal error has occured, please contact your administator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a transaction number/date", "Enter Date/Transaction Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             ChangeFormWidth(false);
@@ -232,7 +317,7 @@ namespace StoreApp
                     PizzaPrice = PizzaSizeCost[PizzaTypeIndex, PizzaSizeIndex];
 
                     PizzaPrice *= Quantity;
-                    CurrentOrderTotalTextBox.Text = PizzaPrice.ToString("C2");
+                    CurrentOrderTotalTextBox.Text = PizzaPrice.ToString();
                     AvailableStock = value;
 
                     AddOrderToOrderButton.Enabled = true;
@@ -249,11 +334,11 @@ namespace StoreApp
             DialogResult Result;
             List<string> lt = new List<string>();
             string str = null, OrderSummary;
-            DateTime dateTime = DateTime.UtcNow.Date;
+            DateTime dateTime = DateTime.Now;
             string OrderNumber;
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // need to write order and date to file
+            // need to write order and date to file (DONE)
             if (OrderedListbox.Items.Count != 0)
             {
                 foreach (var item in OrderedListbox.Items)
@@ -276,8 +361,11 @@ namespace StoreApp
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
                         //adding time to transaction
-                        
+                        OutputFile.WriteLine(OrderNumber);
                         OutputFile.WriteLine(dateTime.ToString());
+                        OutputFile.WriteLine(TotalPizzaSold);
+                        OutputFile.WriteLine(TotalTranactionCost);
+                        OutputFile.WriteLine("- - - - - - - - - - - - - - - -");
                         // OutputFile.WriteLine(txno
                         //   OutputFile.WriteLine(DateBoldEventArgs
 

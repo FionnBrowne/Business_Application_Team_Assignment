@@ -1,17 +1,36 @@
-22/03/2023 00:00:00
-Chicago Deep Dish Pizza           12 inch           £27.80
-Chicago Deep Dish Pizza           12 inch           £27.80
+997088
+22/03/2023 23:34:56
+2
+22.00
+- - - - - - - - - - - - - - - -
+Pepperoni Pizza           12 inch           £11.00
+Pepperoni Pizza           12 inch           £11.00
 
-22/03/2023 00:00:00
-Chicago Deep Dish Pizza           12 inch           £27.80
-Chicago Deep Dish Pizza           12 inch           £27.80
+634010
+22/03/2023 23:34:59
+3
+30.00
+- - - - - - - - - - - - - - - -
+Pepperoni Pizza           12 inch           £11.00
+Pepperoni Pizza           12 inch           £11.00
+Hawaiian Pizza            6  inch           £8.00
 
-22/03/2023 00:00:00
-Pepperoni Pizza           15 inch           £14.00
-Chicago Deep Dish Pizza            9  inch           £23.00
-Chicago Deep Dish Pizza            9  inch           £23.00
+358261
+22/03/2023 23:35:01
+3
+30.00
+- - - - - - - - - - - - - - - -
+Pepperoni Pizza           12 inch           £11.00
+Pepperoni Pizza           12 inch           £11.00
+Hawaiian Pizza            6  inch           £8.00
 
-22/03/2023 00:00:00
-Veggie Pizza           12 inch           £24.00
-Veggie Pizza           12 inch           £24.00
+243460
+22/03/2023 23:35:06
+4
+44.50
+- - - - - - - - - - - - - - - -
+Pepperoni Pizza           12 inch           £11.00
+Pepperoni Pizza           12 inch           £11.00
+Hawaiian Pizza            6  inch           £8.00
+Veggie Pizza           15 inch           £14.50
 

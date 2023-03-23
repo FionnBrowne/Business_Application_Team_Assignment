@@ -59,13 +59,15 @@
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.SearchDetailsPanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.DateLabel = new System.Windows.Forms.Label();
             this.BookingNumberLabel = new System.Windows.Forms.Label();
             this.SearchTypeGroupBox = new System.Windows.Forms.GroupBox();
             this.DateSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.TrxNumSearchRadioButton = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SearchGroupBox.SuspendLayout();
@@ -371,9 +373,9 @@
             this.SearchResultListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchResultListBox.FormattingEnabled = true;
             this.SearchResultListBox.ItemHeight = 16;
-            this.SearchResultListBox.Location = new System.Drawing.Point(191, 137);
+            this.SearchResultListBox.Location = new System.Drawing.Point(148, 137);
             this.SearchResultListBox.Name = "SearchResultListBox";
-            this.SearchResultListBox.Size = new System.Drawing.Size(207, 244);
+            this.SearchResultListBox.Size = new System.Drawing.Size(250, 244);
             this.SearchResultListBox.TabIndex = 1;
             // 
             // SearchGroupBox
@@ -384,7 +386,7 @@
             this.SearchGroupBox.Controls.Add(this.SearchDetailsPanel);
             this.SearchGroupBox.Controls.Add(this.SearchTypeGroupBox);
             this.SearchGroupBox.Controls.Add(this.SearchResultListBox);
-            this.SearchGroupBox.Controls.Add(this.button1);
+            this.SearchGroupBox.Controls.Add(this.SearchButton);
             this.SearchGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchGroupBox.Location = new System.Drawing.Point(1082, 52);
             this.SearchGroupBox.Name = "SearchGroupBox";
@@ -422,18 +424,29 @@
             // 
             // SearchDetailsPanel
             // 
+            this.SearchDetailsPanel.Controls.Add(this.label8);
+            this.SearchDetailsPanel.Controls.Add(this.label7);
             this.SearchDetailsPanel.Controls.Add(this.label6);
             this.SearchDetailsPanel.Controls.Add(this.DateLabel);
             this.SearchDetailsPanel.Controls.Add(this.BookingNumberLabel);
-            this.SearchDetailsPanel.Location = new System.Drawing.Point(23, 137);
+            this.SearchDetailsPanel.Location = new System.Drawing.Point(0, 137);
             this.SearchDetailsPanel.Name = "SearchDetailsPanel";
             this.SearchDetailsPanel.Size = new System.Drawing.Size(145, 247);
             this.SearchDetailsPanel.TabIndex = 4;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(58, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 16);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Total Pizza";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(64, 205);
+            this.label6.Location = new System.Drawing.Point(64, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 16);
             this.label6.TabIndex = 26;
@@ -442,7 +455,7 @@
             // DateLabel
             // 
             this.DateLabel.AutoSize = true;
-            this.DateLabel.Location = new System.Drawing.Point(41, 106);
+            this.DateLabel.Location = new System.Drawing.Point(41, 23);
             this.DateLabel.Name = "DateLabel";
             this.DateLabel.Size = new System.Drawing.Size(101, 16);
             this.DateLabel.TabIndex = 25;
@@ -451,7 +464,7 @@
             // BookingNumberLabel
             // 
             this.BookingNumberLabel.AutoSize = true;
-            this.BookingNumberLabel.Location = new System.Drawing.Point(20, 16);
+            this.BookingNumberLabel.Location = new System.Drawing.Point(20, 3);
             this.BookingNumberLabel.Name = "BookingNumberLabel";
             this.BookingNumberLabel.Size = new System.Drawing.Size(122, 16);
             this.BookingNumberLabel.TabIndex = 24;
@@ -491,16 +504,26 @@
             this.TrxNumSearchRadioButton.Text = "Trx Num";
             this.TrxNumSearchRadioButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // SearchButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(192, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 27);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "&Search";
-            this.button1.UseVisualStyleBackColor = false;
+            this.SearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchButton.Location = new System.Drawing.Point(192, 95);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(80, 27);
+            this.SearchButton.TabIndex = 22;
+            this.SearchButton.Text = "&Search";
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(68, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 16);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Order List";
             // 
             // MainForm
             // 
@@ -565,7 +588,9 @@
         private System.Windows.Forms.Label BookingNumberLabel;
         private System.Windows.Forms.RadioButton DateSearchRadioButton;
         private System.Windows.Forms.RadioButton TrxNumSearchRadioButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
