@@ -41,7 +41,6 @@ namespace StoreApp
 
         private void readStock()
         {
-            StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
 
             String file = "StockList.txt";
             String[] allRows = File.ReadAllLines(file);
