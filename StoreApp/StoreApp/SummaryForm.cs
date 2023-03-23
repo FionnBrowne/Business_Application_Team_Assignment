@@ -31,6 +31,7 @@ namespace StoreApp
         {
             InitializeComponent();
             readStock();
+            CompanySummary();
         }
 
         private void ExitSummaryButton_Click(object sender, EventArgs e)
@@ -65,6 +66,23 @@ namespace StoreApp
 
                 // Add the values to the listBox2 control
                 StockListbox.Items.Add(string.Join(" ", oneRow));
+            }
+        }
+        private void CompanySummary()
+        {
+            try
+            {
+                StreamReader Input = File.OpenText("Form2Summary.txt");
+
+                SalesListbox.Items.Add("Transactions Processed: " + Input.ReadLine());
+                SalesListbox.Items.Add("Pizzas Sold: " + Input.ReadLine().ToString());
+                SalesListbox.Items.Add("Profit: " + Input.ReadLine());
+
+                Input.Close();
+            }
+            catch
+            {
+                MessageBox.Show("A fatal error has occured, please contact your administator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
