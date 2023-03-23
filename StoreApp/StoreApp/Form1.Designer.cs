@@ -45,7 +45,6 @@
             this.AddOrderToOrderButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.OrderConformationButton = new System.Windows.Forms.Button();
             this.SummaryButton = new System.Windows.Forms.Button();
             this.ExitSummaryButton = new System.Windows.Forms.Button();
@@ -59,6 +58,7 @@
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.SearchDetailsPanel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.DateSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.TrxNumSearchRadioButton = new System.Windows.Forms.RadioButton();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.SearchButon = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SearchGroupBox.SuspendLayout();
@@ -210,9 +210,9 @@
             this.OrderedListbox.FormattingEnabled = true;
             this.OrderedListbox.ItemHeight = 15;
             this.OrderedListbox.Location = new System.Drawing.Point(2, 254);
-            this.OrderedListbox.Margin = new System.Windows.Forms.Padding(2);
+            this.OrderedListbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.OrderedListbox.Name = "OrderedListbox";
-            this.OrderedListbox.Size = new System.Drawing.Size(324, 124);
+            this.OrderedListbox.Size = new System.Drawing.Size(324, 109);
             this.OrderedListbox.TabIndex = 19;
             // 
             // CurrentOrderTotalTextBox
@@ -237,8 +237,8 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.SearchButon);
             this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.OrderConformationButton);
             this.flowLayoutPanel1.Controls.Add(this.SummaryButton);
             this.flowLayoutPanel1.Controls.Add(this.ExitSummaryButton);
@@ -251,23 +251,12 @@
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 3);
+            this.button2.Location = new System.Drawing.Point(3, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 27);
             this.button2.TabIndex = 19;
             this.button2.Text = "&Button";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(3, 36);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 27);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "&Button";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // OrderConformationButton
             // 
@@ -317,9 +306,9 @@
             "15 inch",
             "18 inch"});
             this.PizzaSizeListBox.Location = new System.Drawing.Point(214, 51);
-            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PizzaSizeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PizzaSizeListBox.Name = "PizzaSizeListBox";
-            this.PizzaSizeListBox.Size = new System.Drawing.Size(79, 100);
+            this.PizzaSizeListBox.Size = new System.Drawing.Size(79, 84);
             this.PizzaSizeListBox.TabIndex = 16;
             this.PizzaSizeListBox.SelectedIndexChanged += new System.EventHandler(this.PizzaSizeListBox_SelectedIndexChanged);
             // 
@@ -343,9 +332,9 @@
             "Ham and Cheese Pizza",
             "3-Guys-Special-Pizza"});
             this.PizzaTypeListBox.Location = new System.Drawing.Point(44, 51);
-            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PizzaTypeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PizzaTypeListBox.Name = "PizzaTypeListBox";
-            this.PizzaTypeListBox.Size = new System.Drawing.Size(166, 109);
+            this.PizzaTypeListBox.Size = new System.Drawing.Size(166, 94);
             this.PizzaTypeListBox.TabIndex = 15;
             this.PizzaTypeListBox.SelectedIndexChanged += new System.EventHandler(this.PizzaTypeListBox_SelectedIndexChanged);
             // 
@@ -376,7 +365,7 @@
             this.SearchResultListBox.ItemHeight = 16;
             this.SearchResultListBox.Location = new System.Drawing.Point(92, 135);
             this.SearchResultListBox.Name = "SearchResultListBox";
-            this.SearchResultListBox.Size = new System.Drawing.Size(306, 228);
+            this.SearchResultListBox.Size = new System.Drawing.Size(306, 212);
             this.SearchResultListBox.TabIndex = 1;
             // 
             // SearchGroupBox
@@ -436,6 +425,16 @@
             this.SearchDetailsPanel.Name = "SearchDetailsPanel";
             this.SearchDetailsPanel.Size = new System.Drawing.Size(81, 133);
             this.SearchDetailsPanel.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 15);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Trx. Time";
             // 
             // label8
             // 
@@ -533,21 +532,23 @@
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // label9
+            // SearchButon
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Trx. Time";
+            this.SearchButon.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SearchButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchButon.Location = new System.Drawing.Point(3, 3);
+            this.SearchButon.Name = "SearchButon";
+            this.SearchButon.Size = new System.Drawing.Size(80, 27);
+            this.SearchButon.TabIndex = 22;
+            this.SearchButon.Text = "&Search";
+            this.SearchButon.UseVisualStyleBackColor = false;
+            this.SearchButon.Click += new System.EventHandler(this.SearchButon_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1532, 482);
+            this.ClientSize = new System.Drawing.Size(1059, 482);
             this.Controls.Add(this.SearchGroupBox);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -581,7 +582,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button OrderConformationButton;
         private System.Windows.Forms.Button ExitSummaryButton;
         private System.Windows.Forms.ListBox OrderedListbox;
@@ -610,6 +610,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button SearchButon;
     }
 }
 

@@ -50,6 +50,31 @@ namespace StoreApp
 
         int FILELENGTH = 5;
 
+        int chk = 0;
+
+
+       
+        private void SearchButon_Click(object sender, EventArgs e)
+            // EXPAND SEARCH FORM
+        {
+            if (chk == 0)
+            {
+                for (int i = 1075; i <= 1533; i++)
+                {
+                    this.Size = new Size(i, 521);
+                }
+                chk = 1;
+            }
+            else if (chk == 1)
+            {
+                for (int i = 1533; i >= 1075; i--)
+                {
+                    this.Size = new Size(i, 521);
+                }
+                chk = 0;
+            }
+        }
+
         private void SummaryButton_Click(object sender, EventArgs e)
         {
             var newform = new SummaryForm();
@@ -282,7 +307,6 @@ namespace StoreApp
 
                 try
                 {
-                    StreamReader InPutFile = File.OpenText("TransactionSummary.txt");
 
                     if (TrxNumSearchRadioButton.Checked)
                     {
@@ -359,6 +383,7 @@ namespace StoreApp
             SearchTextBox.Enabled = true;
             SearchTypeGroupBox.Enabled = true;
         }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
