@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Expando;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace StoreApp
        
         
         string Pizza;
-        const int INCREMENT = 10, FORMSTARTWIDTH = 1100, FORMSTARTHEIGHT = 512, FORMEXPANDWIDTH = 1406, MIN_RANNUM = 100000, MAX_RANNUM = 999999;
+        const int INCREMENT = 10, FORMSTARTWIDTH = 1075, FORMSTARTHEIGHT = 521, FORMEXPANDWIDTH = 1533, MIN_RANNUM = 100000, MAX_RANNUM = 999999;
         Boolean FormWidthExpanded = true;
         decimal[,] PizzaSizeCost = new decimal[13, 5] {
             { 7.50m, 10.50m, 13.50m, 15.50m, 17.50m},
@@ -50,30 +51,8 @@ namespace StoreApp
 
         int FILELENGTH = 5;
 
-        int chk = 0;
 
 
-       
-        private void SearchButon_Click(object sender, EventArgs e)
-            // EXPAND SEARCH FORM
-        {
-            if (chk == 0)
-            {
-                for (int i = 1075; i <= 1533; i++)
-                {
-                    this.Size = new Size(i, 521);
-                }
-                chk = 1;
-            }
-            else if (chk == 1)
-            {
-                for (int i = 1533; i >= 1075; i--)
-                {
-                    this.Size = new Size(i, 521);
-                }
-                chk = 0;
-            }
-        }
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
@@ -283,7 +262,7 @@ namespace StoreApp
                     }
                     catch
                     {
-                        MessageBox.Show("A fatal error has occured, please contact your administator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
                     }
                 }
                 else
@@ -384,6 +363,10 @@ namespace StoreApp
             SearchTypeGroupBox.Enabled = true;
         }
 
+        private void CloseSearchButton_Click(object sender, EventArgs e)
+        {
+            ChangeFormWidth(false);
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -558,49 +541,49 @@ namespace StoreApp
          *Methods 
          * 
          */
-        private void ChangeFormWidth(Boolean Expand)
+private void ChangeFormWidth(Boolean Expand)
+{
+    if (Expand)
+    {
+        if (!FormWidthExpanded)
         {
-            if (Expand)
+            for (int i = FORMSTARTWIDTH; i < FORMEXPANDWIDTH; i += INCREMENT)
             {
-                if (!FormWidthExpanded)
-                {
-                    for (int i = FORMSTARTWIDTH; i < FORMEXPANDWIDTH; i += INCREMENT)
-                    {
-                        this.Size = new Size(i, FORMSTARTHEIGHT);
-                        this.Update();
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    FormWidthExpanded = true;
-                }
+                this.Size = new Size(i, FORMSTARTHEIGHT);
+                this.Update();
+                System.Threading.Thread.Sleep(1);
             }
-            else
-            {
-                if (FormWidthExpanded)
-                {
-                    for (int i = FORMEXPANDWIDTH; i > FORMSTARTWIDTH; i -= INCREMENT)
-                    {
-                        this.Size = new Size(i, FORMSTARTHEIGHT);
-                        this.Update();
-                        System.Threading.Thread.Sleep(1);
-                    }
-                    FormWidthExpanded = false;
-                }
-            }
+            FormWidthExpanded = true;
         }
-        //random Number Generator
-        private String GenerateRandomNumber(int Min, int Max)
-        {
-            Random MyRandomObject;
-            int RandomNumber;
-
-            MyRandomObject = new Random();
-            RandomNumber = MyRandomObject.Next(Min, Max);
-
-            return RandomNumber.ToString();
-        }
-
     }
+    else
+    {
+        if (FormWidthExpanded)
+        {
+            for (int i = FORMEXPANDWIDTH; i > FORMSTARTWIDTH; i -= INCREMENT)
+            {
+                this.Size = new Size(i, FORMSTARTHEIGHT);
+                this.Update();
+                System.Threading.Thread.Sleep(1);
+            }
+            FormWidthExpanded = false;
+        }
+    }
+}
+ 
+//random Number Generator
+private String GenerateRandomNumber(int Min, int Max)
+{
+    Random MyRandomObject;
+    int RandomNumber;
+
+    MyRandomObject = new Random();
+    RandomNumber = MyRandomObject.Next(Min, Max);
+
+    return RandomNumber.ToString();
+}
+
+}
 
 
 }
-    
