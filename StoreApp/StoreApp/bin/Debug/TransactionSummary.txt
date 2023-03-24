@@ -120,3 +120,87 @@ Pepperoni Pizza            6  inch           £7.00
 Pepperoni Pizza            6  inch           £7.00
 Pepperoni Pizza            6  inch           £7.00
 
+809275
+23/03/2023
+13:43
+2
+30.00
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Meat Feast Pizza           12 inch           £15.00
+Meat Feast Pizza           12 inch           £15.00
+
+563719
+0 0 0 0 0 
+13:49
+1
+9.25
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Pepperoni Pizza            9  inch           £9.25
+
+404785
+24/03/2023
+13:49
+3
+36.25
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Meat Feast Pizza            6  inch           £9.00
+Meat Feast Pizza            6  inch           £9.00
+Meat Feast Pizza            6  inch           £9.00
+
+249199
+0 0 0 0 0 
+13:55
+3
+23.25
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Pepperoni Pizza            9  inch           £9.25
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+
+164024
+24/03/2023
+13:55
+4
+51.25
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+
+724122
+24/03/2023
+13:56
+2
+30.00
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Meat Feast Pizza           12 inch           £15.00
+Meat Feast Pizza           12 inch           £15.00
+
+105135
+0 0 0 0 0 
+13:57
+4
+33.00
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Meat Feast Pizza            9  inch           £12.00
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+Pepperoni Pizza            6  inch           £7.00
+
+739244
+24/03/2023
+16:48
+1
+9.25
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Pepperoni Pizza            9  inch           £9.25
+

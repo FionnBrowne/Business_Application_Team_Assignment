@@ -43,10 +43,9 @@
             // 
             this.ExitSummaryButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ExitSummaryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitSummaryButton.Location = new System.Drawing.Point(88, 401);
-            this.ExitSummaryButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExitSummaryButton.Location = new System.Drawing.Point(66, 326);
             this.ExitSummaryButton.Name = "ExitSummaryButton";
-            this.ExitSummaryButton.Size = new System.Drawing.Size(107, 33);
+            this.ExitSummaryButton.Size = new System.Drawing.Size(80, 27);
             this.ExitSummaryButton.TabIndex = 0;
             this.ExitSummaryButton.Text = "&Close";
             this.toolTip1.SetToolTip(this.ExitSummaryButton, "Closes the Summary Form");
@@ -56,21 +55,19 @@
             // StockListbox
             // 
             this.StockListbox.FormattingEnabled = true;
-            this.StockListbox.ItemHeight = 16;
-            this.StockListbox.Location = new System.Drawing.Point(15, 14);
-            this.StockListbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StockListbox.Location = new System.Drawing.Point(11, 11);
+            this.StockListbox.Margin = new System.Windows.Forms.Padding(2);
             this.StockListbox.Name = "StockListbox";
-            this.StockListbox.Size = new System.Drawing.Size(237, 212);
+            this.StockListbox.Size = new System.Drawing.Size(179, 173);
             this.StockListbox.TabIndex = 1;
             // 
             // SalesListbox
             // 
             this.SalesListbox.FormattingEnabled = true;
-            this.SalesListbox.ItemHeight = 16;
-            this.SalesListbox.Location = new System.Drawing.Point(276, 14);
-            this.SalesListbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SalesListbox.Location = new System.Drawing.Point(236, 11);
+            this.SalesListbox.Margin = new System.Windows.Forms.Padding(2);
             this.SalesListbox.Name = "SalesListbox";
-            this.SalesListbox.Size = new System.Drawing.Size(237, 420);
+            this.SalesListbox.Size = new System.Drawing.Size(223, 342);
             this.SalesListbox.TabIndex = 2;
             // 
             // imageList1
@@ -83,10 +80,9 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::StoreApp.Properties.Resources._3_guys_pizzeria1;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 236);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(40, 192);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 153);
+            this.pictureBox1.Size = new System.Drawing.Size(128, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -98,16 +94,15 @@
             // 
             // SummaryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
-            this.ClientSize = new System.Drawing.Size(527, 443);
+            this.ClientSize = new System.Drawing.Size(470, 366);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SalesListbox);
             this.Controls.Add(this.StockListbox);
             this.Controls.Add(this.ExitSummaryButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SummaryForm";
             this.Text = "SummaryForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

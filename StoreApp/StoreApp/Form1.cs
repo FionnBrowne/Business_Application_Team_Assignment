@@ -17,14 +17,16 @@ namespace StoreApp
 {
     public partial class MainForm : Form
     {
-        //List box items
+        //List box items 1d array 
         static String[] PizzaTypes = { "Margherita Pizza", "Hawaiian Pizza", "Pepperoni Pizza", "Meat Feast Pizza", "Chicago Deep Dish Pizza", "Veggie Pizza", "BBQ Chicken Pizza", "Peri Peri Chicken Pizza", "Beef Supreme Pizza", "Neapolitan Pizza", "Buffalo Pizza", "Ham and Cheese Pizza", "3-Guys-Special-Pizza" };
-        //decimal[] CostOfPizza = { 7.50m, 8.00m, 7.00m, 9.00m, 8.50m, 7.00m, 10.00m, 10.50m, 11.00m, 8.75m, 9.00m, 8.00m, 12.00m };
-       
-        
+        static String[] PizzaSizeInch = { "6", "9", "12", "15", "18" };
+
+        //Form width and Length set up
         string Pizza;
         const int INCREMENT = 10, FORMSTARTWIDTH = 1075, FORMSTARTHEIGHT = 521, FORMEXPANDWIDTH = 1533, MIN_RANNUM = 100000, MAX_RANNUM = 999999;
         Boolean FormWidthExpanded = true;
+
+        //2d arrays.
         decimal[,] PizzaSizeCost = new decimal[13, 5] {
             { 7.50m, 10.50m, 13.50m, 15.50m, 17.50m},
             { 8.00m, 12.25m, 15.00m, 18.50m, 22.00m },
@@ -39,32 +41,59 @@ namespace StoreApp
             { 9.00m, 11.90m, 14.00m, 16.60m, 19.00m },
             { 8.00m, 10.90m, 13.00m, 15.00m, 18.00m },
             { 12.00m, 15.00m, 19.90m, 22.00m, 26.90m },};
+
+        //2d arrays.
+        decimal[,] PizzaSelectedDuringTransaction = new decimal[13, 5] {
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 0, 0, 0, 0, 0 },};
+
         public MainForm()
         {
             InitializeComponent();
+            //StockSelectedTransaction();
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //when clicked, contracts the form width
+            ChangeFormWidth(false);
+            //resets stock when program is run (test code)
+            ResetStockSelected(PizzaSelectedDuringTransaction);
         }
         // Getting the value of the object then setting it in the textbox
-        decimal TotalTransactionCostForTextbox { get;set; }
+        decimal TotalTransactionCostForTextbox { get; set; }
 
         // Getting the value of the object then using it in multiple methods and storing the value into the file
-        decimal TotalTranactionCost { get;set; }
+        decimal TotalTranactionCost { get; set; }
         int TransactionCount { get; set; }
         int TotalPizzaSold { get; set; }
         int AvailableStock { get; set; }
 
-        // int FILELENGTH = 5;
-
+        //When summary button is pressed, a pop up of form 2 comes up
         private void SummaryButton_Click(object sender, EventArgs e)
         {
             var newform = new SummaryForm();
             newform.Show();
         }
-     
+
+        //Stores selected index from 2d arrays into order listbox
         private void AddOrderToOrderButton_Click(object sender, EventArgs e)
         {
-            int PizzaTypeIndex = 0, PizzaSizeIndex = 0;
+            int PizzaTypeIndex = 0, PizzaSizeIndex = 0, PizzaTransactionTypeIndex = 0, PizzaTransactionSizeIndex = 0;
+            int[,] PizzasSold = new int[13, 5];
             //int[,] PizzaSizeIndex = [0, 0];
             decimal PizzaPrice;
+            string PizzaTransactionType, PizzaTransactionSize;
 
             if (PizzaTypeListBox.SelectedIndex != -1)
             {
@@ -74,6 +103,7 @@ namespace StoreApp
 
                     for (int i = 0; i < Quantity; i++)
                     {
+                        //Whatever index has been selected, it is placed as a array which is linked to the 2d array
                         PizzaTypeIndex = PizzaTypeListBox.SelectedIndex;
                         PizzaSizeIndex = PizzaSizeListBox.SelectedIndex;
                         //PizzaPrice is = to the Pizza type index position on the array of pizza then the size index position
@@ -98,6 +128,15 @@ namespace StoreApp
                         //Adds order total
                     }
 
+                    PizzaTransactionTypeIndex = PizzaTypeListBox.SelectedIndex;
+                    PizzaTransactionSizeIndex = PizzaSizeListBox.SelectedIndex;
+                    //PizzaPrice is = to the Pizza type index position on the array of pizza then the size index position
+                    PizzaTransactionType = PizzaTypes[PizzaTypeIndex];
+                    PizzaTransactionSize = PizzaSizeInch[PizzaSizeIndex];
+                    PizzasSold[PizzaTypeIndex, PizzaSizeIndex] = Quantity;
+                    Console.WriteLine("Array (After using Clear):");
+                    StockSelectedTransaction(PizzasSold);
+
                     //highlighted items in listboxes are unselected
                     PizzaSizeListBox.ClearSelected();
                     PizzaTypeListBox.ClearSelected();
@@ -105,24 +144,27 @@ namespace StoreApp
                 }
                 else
                 {
+                    //if user did not selected a pizza type in listbox, displays message
                     MessageBox.Show("A Pizza Type is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     PizzaSizeListBox.Focus();
                 }
             }
             else
             {
+                //if user did not selected a pizza size in listbox, displays message
                 MessageBox.Show("A Pizza Size is needed to proceed", "Entry Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 PizzaTypeListBox.Focus();
             }
-       
+
         }
         private void ExitSummaryButton_Click(object sender, EventArgs e)
         {
+            //Closes the application (form1)
             this.Close();
         }
         private void CancelTransactionButton_Click(object sender, EventArgs e)
         {
-            //clears all the transaction
+            //clears all the transaction and resets the process
             DialogResult = MessageBox.Show("Are you sure you would like to Cancel the Transaction?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (DialogResult == DialogResult.Yes)
@@ -137,59 +179,75 @@ namespace StoreApp
             }
         }
 
+        //This button increases the same pizza quantity that is going inside order listbox
         private void IncreaseQuantityButton_Click(object sender, EventArgs e)
         {
             int Add = 1, quantity;
 
             quantity = int.Parse(PizzaQuantityTextbox.Text);
 
+            //if there is no available stock, prevents the user from buying this type of pizza + size
             if (quantity != AvailableStock)
             {
                 quantity += Add;
                 PizzaQuantityTextbox.Text = quantity.ToString();
+                //(method on bottom of code)
                 ChangeDuringClick();
             }
             else
             {
+                //if product is out of stock, displays message
                 MessageBox.Show("Sorry, but this is the Current Maximum Number of this Pizzas Type and Size in Stock", "Maximum Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+        //This button decreases the same pizza quantity that is going inside order listbox
         private void DecreaseQuantityButton_Click(object sender, EventArgs e)
         {
             int subtract = 1, quantity;
 
             quantity = int.Parse(PizzaQuantityTextbox.Text);
 
+            //Prevents the user from ordering less than 1 pizza type + size
             if (quantity != 1)
             {
                 quantity -= subtract;
                 PizzaQuantityTextbox.Text = quantity.ToString();
+                //(method on bottom of code)
                 ChangeDuringClick();
             }
         }
 
+        //when button is clicked, reset pizza quantity and runs method (method on bottom of code)
         private void PizzaSizeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             PizzaQuantityTextbox.Text = "1";
+            //(method on bottom of code)
             ChangeDuringClick();
+            //StockSelectedTransaction();
         }
 
         private void PizzaTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             PizzaQuantityTextbox.Text = "1";
-            ChangeDuringClick();        
+            //(method on bottom of code)
+            ChangeDuringClick();
+            //StockSelectedTransaction();
         }
 
         private void OrderConformationButton_Click(object sender, EventArgs e)
         {
+            //when clicked, expands the form width
             ChangeFormWidth(true);
         }
 
+        //allows the user to search by transaction number + time
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            //prevents the user from not selecting search critera
             if (TrxNumSearchRadioButton.Checked != false || DateSearchRadioButton.Checked != false)
             {
+                //prevents the user from entering no search input
                 if (SearchTextBox.Text != "")
                 {
                     SearchResultListBox.Items.Clear();
@@ -198,27 +256,21 @@ namespace StoreApp
                     int QuantityPizza;
                     decimal TotalCost;
 
-                    //NB ***************
-                    int index = 0; //start search at first element in array
-                                   //******************************
+                    int index = 0; 
+
                     try
-                    {
-                        //StreamReader InPutFile = File.OpenText("TransactionSummary.txt");
+                    {                       
                         String[] InPutFile = File.ReadAllLines("TransactionSummary.txt");
-                        //if (TrxNumSearchRadioButton.Checked)
-                        //{
-                        //while (!InPutFile.EndOfStream || !TrxFound)
-                        //{
+
                         do
                         {
                             index = Array.IndexOf(InPutFile, SearchString, index);
-                            //see: https://learn.microsoft.com/en-us/dotnet/api/system.array.indexof?view=netframework-4.7.2&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Array.IndexOf%60%601)%3Bk(TargetFrameworkMoniker-.NETFramework%2CVersion%253Dv4.7.2)%3Bk(DevLang-csharp)%26rd%3Dtrue                       
-                            //2nd overload
+
                             if (index != -1)
                             {
                                 if (!TrxNumSearchRadioButton.Checked)
                                 {
-                                    index--; // matched wit date, 2nd line of record, so index - 1 for TX_No
+                                    index--; // matched with date, 2nd line of record, so index - 1 for TX_No
                                 }
 
                                 SearchResultListBox.Items.Add(InPutFile[index]);
@@ -247,22 +299,24 @@ namespace StoreApp
 
                                 index++;
 
+                                //disables search features until clear button is pressed
                                 SearchButton.Enabled = false;
                                 SearchTextBox.Enabled = false;
                                 SearchTypeGroupBox.Enabled = false;
                             }
                             else
                             {
+                                //if index is -1 then no transaction has been found
                                 MessageBox.Show("The Transaction has not been found", "No Results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                                 break;
                             }
 
                         } while (!TrxNumSearchRadioButton.Checked);// keep searching if by date
-                                                                   //end do-while
                     }
                     catch
                     {
+                        //the end point of the transaction, where the loop stops
                         MessageBox.Show("End transaction History", "End of Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -355,6 +409,7 @@ namespace StoreApp
 
         private void ClearSearchButton_Click(object sender, EventArgs e)
         {
+            //clears all search functionualties
             SearchTextBox.Clear();
             SearchResultListBox.Items.Clear();
             TrxNumSearchRadioButton.Checked = false;
@@ -366,39 +421,38 @@ namespace StoreApp
 
         private void CloseSearchButton_Click(object sender, EventArgs e)
         {
+            //contracts form width
             ChangeFormWidth(false);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            ChangeFormWidth(false);
-        }
 
-        //When listboxes are clicked, or increase/decrease quantity, the current price changes
+
+        //When listboxes are clicked, or increase/decrease quantity, the current price changes. also prevents user from
+        //ordering more pizzas than there actually is currently in stock
         private int ChangeDuringClick()
         {
             int PizzaTypeIndex = 0, PizzaSizeIndex = 0, Quantity = int.Parse(PizzaQuantityTextbox.Text), row, col, value;
             decimal PizzaPrice;
 
-            // read the contents of the file into a string variable
+            // Reads the file and puts all items into variable
             string PizzaStock = File.ReadAllText("StockList.txt");
 
-            // split the string into rows and columns
+            // splits the file, making all numbers go into 1 line and removes ,
             string[] rows = PizzaStock.Split('\n');
             int numRows = rows.Length;
             int numCols = rows[0].Split(',').Length;
             int[,] array = new int[numRows, numCols];
 
-            for (int i = 0; i < numRows; i++)
+            for (int r = 0; r < numRows; r++)
             {
-                string[] cols = rows[i].Split(',');
-                for (int j = 0; j < numCols; j++)
+                string[] cols = rows[r].Split(',');
+                for (int c = 0; c < numCols; c++)
                 {
-                    array[i, j] = int.Parse(cols[j].Trim());
+                    array[r, c] = int.Parse(cols[c].Trim());
                 }
             }
 
-            // access a specific element of the array
+            // Gets the pizza type and size index into array and searches the stock file
             if (PizzaSizeListBox.SelectedItems.Count > 0 && PizzaTypeListBox.SelectedItems.Count > 0)
             {
                 row = PizzaTypeListBox.SelectedIndex;
@@ -445,20 +499,24 @@ namespace StoreApp
             string OrderNumber;
             int TransactionCount1 = 0, TotalPizzaSold1 = 0;
             decimal TotalTransactionsCost = 0;
-
+            //prevents the user from ordering nothing
             if (OrderedListbox.Items.Count != 0)
             {
                 foreach (var item in OrderedListbox.Items)
-                {  
+                {
                     lt.Add(item.ToString()); //store the items in the list
                     str += item + "\r\n";    //store the items in the string
                 }
+
+                //creates messagebox that displays all order into it
                 OrderNumber = GenerateRandomNumber(MIN_RANNUM, MAX_RANNUM);
                 OrderSummary = "Order Number: " + OrderNumber + "\nOrder Date: " + Date + " " + Time + "\nOrder Contents: \n" + str;
                 DialogResult = MessageBox.Show(OrderSummary, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                //puts details into the file that is then displayed in summary 
                 if (DialogResult == DialogResult.Yes)
                 {
+                    ResetStockSelected(PizzaSelectedDuringTransaction);
                     try
                     {
                         TransactionCount += 1;
@@ -470,7 +528,7 @@ namespace StoreApp
                             File.Create("Summary.txt");
                         }
                         StreamReader InputFile = File.OpenText("Summary.txt");
-                        
+
                         if (InputFile == null)
                         {
                             InputFile.Close();
@@ -482,8 +540,9 @@ namespace StoreApp
                             OutputFile2.WriteLine(TotalPizzaSold1);
                             OutputFile2.WriteLine(TransactionCount1);
                             OutputFile2.WriteLine(TotalTransactionsCost);
+                            OutputFile2.WriteLine(" ");
                             OutputFile2.Close();
-                        } 
+                        }
                         else if (DateTime.Now.ToString("d") != (Date = InputFile.ReadLine()))
                         {
                             InputFile.Close();
@@ -496,6 +555,7 @@ namespace StoreApp
                             OutputFile2.WriteLine(TotalPizzaSold1);
                             OutputFile2.WriteLine(TransactionCount1);
                             OutputFile2.WriteLine(TotalTransactionsCost);
+                            OutputFile2.WriteLine(" ");
                             OutputFile2.Close();
                         }
                         else
@@ -512,9 +572,11 @@ namespace StoreApp
                             OutputFile2.WriteLine(TransactionCount1);
                             OutputFile2.WriteLine(TotalPizzaSold1);
                             OutputFile2.WriteLine(TotalTransactionsCost);
+                            OutputFile2.WriteLine(" ");
                             OutputFile2.Close();
                         }
 
+                        //saves the order into a file whuch can be used by search
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
                         //adding time to transaction
                         OutputFile.WriteLine(OrderNumber);
@@ -524,26 +586,23 @@ namespace StoreApp
                         OutputFile.WriteLine(TotalTranactionCost);
                         OutputFile.WriteLine("");
                         OutputFile.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-                        // OutputFile.WriteLine(txno
-                        //   OutputFile.WriteLine(DateBoldEventArgs
 
-                        // OutputFile.WriteLine( TotalTransactionCost
-
-
+                        //writes in all ordered pizzas into file
                         for (int i = 0; i < OrderedListbox.Items.Count; i++)
                         {
-                          /*  object s = OrderedListbox.Items[i];
-                            array[i] = OrderedListbox.Items[i].ToString();
-                            OrderedListbox.Items.CopyTo(array, 0);
+                            /*  object s = OrderedListbox.Items[i];
+                              array[i] = OrderedListbox.Items[i].ToString();
+                              OrderedListbox.Items.CopyTo(array, 0);
 
-                            FormatArray = array[i];
-                            //words = FormatArray; //FormatArray.Split(',');
-                          */
+                              FormatArray = array[i];
+                              //words = FormatArray; //FormatArray.Split(',');
+                            */
                             OutputFile.WriteLine(OrderedListbox.Items[i].ToString());
                         }
                         OutputFile.WriteLine();//end tx
 
                         OrderedListbox.Items.Clear();
+                        //message saying the save was successfull and no error has occured
                         MessageBox.Show("Order has been Saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         ChangeFormWidth(false);
@@ -551,6 +610,7 @@ namespace StoreApp
                     }
                     catch
                     {
+                        //creates message if a error occurs that user cant fix
                         MessageBox.Show("A fatal error has occured, please contact your administator", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -564,6 +624,8 @@ namespace StoreApp
          *Methods 
          * 
          */
+
+        //Expands/contracts the form width when excecuted
         private void ChangeFormWidth(Boolean Expand)
         {
             if (Expand)
@@ -593,8 +655,8 @@ namespace StoreApp
                 }
             }
         }
- 
-        //random Number Generator
+
+        //random Number Generator for transaction
         private String GenerateRandomNumber(int Min, int Max)
         {
             Random MyRandomObject;
@@ -606,11 +668,34 @@ namespace StoreApp
             return RandomNumber.ToString();
         }
 
-        public static void CreateEmptyFile (string FileName)
+        //makes a list of new stock array (not implemented)
+        private void StockSelectedTransaction(int[,] arr)
         {
-            File.Create(FileName).Dispose();
+            StreamWriter OutputFile = File.AppendText("Summary.txt");
+            for (int i = 0; i < 13; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    OutputFile.Write(arr[i, j] + " ");
+                }
+                OutputFile.Write("\n");
+            }
+            OutputFile.Write(" ");
+            OutputFile.Flush();
+            OutputFile.Close();
+        }
+        
+        //resets the file when executed
+        private void ResetStockSelected(decimal[,] arr)
+        {
+            Array.Clear(arr, 0, arr.Length);
+            /*Console.WriteLine("Array (After using Clear):");
+            foreach (int val in arr)
+            {
+                Console.WriteLine(val);
+
+            }*/
         }
     }
-
-
 }
+
