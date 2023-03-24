@@ -69,15 +69,34 @@ namespace StoreApp
         }
         private void CompanySummary()
         {
+            string date;
+            decimal TransactionCount = 0, TotalPizzaSold = 0, AverageItemsPerTransaction = 0,
+                    AveragePizzaCost = 0, TotalTransactionsCost = 0, AverageCostOfOrder = 0;
             try
             {
-                StreamReader Input = File.OpenText("Form2Summary.txt");
+                StreamReader Input = File.OpenText("Summary.txt");
+                date = Input.ReadLine();
+                TransactionCount = int.Parse(Input.ReadLine());
+                TotalPizzaSold = int.Parse(Input.ReadLine());
+                TotalTransactionsCost = decimal.Parse(Input.ReadLine());
+                try
+                {
+                    AverageItemsPerTransaction = TotalPizzaSold / TransactionCount; 
+                    AveragePizzaCost = TotalTransactionsCost / TotalPizzaSold;
+                    AverageCostOfOrder = TotalTransactionsCost / TransactionCount;
+                    SalesListbox.Items.Add("Date: " + date);
+                    SalesListbox.Items.Add("Transactions Processed: " + TransactionCount);
+                    SalesListbox.Items.Add("Pizzas Sold: " + TotalPizzaSold);
+                    SalesListbox.Items.Add("Profit: " + TotalTransactionsCost);
+                    SalesListbox.Items.Add("Average items Per Transaction: " + AverageItemsPerTransaction.ToString("C2"));
+                    SalesListbox.Items.Add("Average Pizza Sale: " + AveragePizzaCost.ToString("C2"));
+                    SalesListbox.Items.Add("Average Cost of Order: " + AverageCostOfOrder.ToString("C2"));
+                    Input.Close();
+                }
+                catch
+                {
 
-                SalesListbox.Items.Add("Transactions Processed: " + Input.ReadLine());
-                SalesListbox.Items.Add("Pizzas Sold: " + Input.ReadLine().ToString());
-                SalesListbox.Items.Add("Profit: " + Input.ReadLine());
-
-                Input.Close();
+                }
             }
             catch
             {

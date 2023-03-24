@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.InteropServices.Expando;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,25 +43,23 @@ namespace StoreApp
         {
             InitializeComponent();
         }
-        // what is this
+        // Getting the value of the object then setting it in the textbox
         decimal TotalTransactionCostForTextbox { get;set; }
+
+        // Getting the value of the object then using it in multiple methods and storing the value into the file
         decimal TotalTranactionCost { get;set; }
         int TransactionCount { get; set; }
         int TotalPizzaSold { get; set; }
         int AvailableStock { get; set; }
 
-        int FILELENGTH = 5;
-
-
-
+        // int FILELENGTH = 5;
 
         private void SummaryButton_Click(object sender, EventArgs e)
         {
             var newform = new SummaryForm();
             newform.Show();
         }
-
-        
+     
         private void AddOrderToOrderButton_Click(object sender, EventArgs e)
         {
             int PizzaTypeIndex = 0, PizzaSizeIndex = 0;
@@ -231,6 +230,7 @@ namespace StoreApp
 
 
                                 index += 4;
+                                //reads until it finds the transaction order
                                 while (index < InPutFile.Length && !String.IsNullOrEmpty(InPutFile[index]))
                                 {
                                     SearchResultListBox.Items.Add(InPutFile[index++]);
@@ -239,6 +239,7 @@ namespace StoreApp
 
                                 QuantityPizza += 2;
 
+                                //Cycling through pizzas in order
                                 for (int i = 0; i < QuantityPizza; i++)
                                 {
                                     SearchResultListBox.Items.Add(InPutFile[index++]);
@@ -262,7 +263,7 @@ namespace StoreApp
                     }
                     catch
                     {
-                        
+                        MessageBox.Show("End transaction History", "End of Date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -435,6 +436,8 @@ namespace StoreApp
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             string[] array = new string[OrderedListbox.Items.Count];
+
+            // Allows to put a value in dialogbox
             DialogResult Result;
             List<string> lt = new List<string>();
             string str = null, OrderSummary;
@@ -442,8 +445,7 @@ namespace StoreApp
             string OrderNumber;
             int TransactionCount1 = 0, TotalPizzaSold1 = 0;
             decimal TotalTransactionsCost = 0;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // need to write order and date to file (DONE)
+
             if (OrderedListbox.Items.Count != 0)
             {
                 foreach (var item in OrderedListbox.Items)
@@ -463,17 +465,37 @@ namespace StoreApp
                         TotalTranactionCost = TotalTransactionCostForTextbox;
                         TotalPizzaSold = OrderedListbox.Items.Count;
 
-                        StreamReader InputFile = File.OpenText("Form2Summary.txt");
-
+                        if (!File.Exists("Summary.txt"))
+                        {
+                            File.Create("Summary.txt");
+                        }
+                        StreamReader InputFile = File.OpenText("Summary.txt");
+                        
                         if (InputFile == null)
                         {
+                            InputFile.Close();
                             TransactionCount1++;
                             TotalPizzaSold1 = TotalPizzaSold;
                             TotalTransactionsCost = TotalTranactionCost;
-                            StreamWriter OutputFile2 = File.CreateText("Form2Summary.txt");
-                            OutputFile2.WriteLine(TransactionCount1);
+                            StreamWriter OutputFile2 = File.CreateText("Summary.txt");
+                            OutputFile2.WriteLine(Date);
                             OutputFile2.WriteLine(TotalPizzaSold1);
-                            OutputFile2.WriteLine(TotalTransactionsCost.ToString());
+                            OutputFile2.WriteLine(TransactionCount1);
+                            OutputFile2.WriteLine(TotalTransactionsCost);
+                            OutputFile2.Close();
+                        } 
+                        else if (DateTime.Now.ToString("d") != (Date = InputFile.ReadLine()))
+                        {
+                            InputFile.Close();
+                            File.Delete("Summary.txt");
+                            TransactionCount1++;
+                            TotalPizzaSold1 = TotalPizzaSold;
+                            TotalTransactionsCost = TotalTranactionCost;
+                            StreamWriter OutputFile2 = File.CreateText("Summary.txt");
+                            OutputFile2.WriteLine(DateTime.Now.ToString("d"));
+                            OutputFile2.WriteLine(TotalPizzaSold1);
+                            OutputFile2.WriteLine(TransactionCount1);
+                            OutputFile2.WriteLine(TotalTransactionsCost);
                             OutputFile2.Close();
                         }
                         else
@@ -485,7 +507,8 @@ namespace StoreApp
                             TotalPizzaSold1 += TotalPizzaSold;
                             TotalTransactionsCost += TotalTranactionCost;
                             InputFile.Close();
-                            StreamWriter OutputFile2 = File.CreateText("Form2Summary.txt");
+                            StreamWriter OutputFile2 = File.CreateText("Summary.txt");
+                            OutputFile2.WriteLine(Date);
                             OutputFile2.WriteLine(TransactionCount1);
                             OutputFile2.WriteLine(TotalPizzaSold1);
                             OutputFile2.WriteLine(TotalTransactionsCost);
@@ -495,7 +518,7 @@ namespace StoreApp
                         StreamWriter OutputFile = File.AppendText("TransactionSummary.txt");
                         //adding time to transaction
                         OutputFile.WriteLine(OrderNumber);
-                        OutputFile.WriteLine(Date.ToString());
+                        OutputFile.WriteLine(Date);
                         OutputFile.WriteLine(Time.ToString());
                         OutputFile.WriteLine(TotalPizzaSold);
                         OutputFile.WriteLine(TotalTranactionCost);
@@ -541,49 +564,53 @@ namespace StoreApp
          *Methods 
          * 
          */
-private void ChangeFormWidth(Boolean Expand)
-{
-    if (Expand)
-    {
-        if (!FormWidthExpanded)
+        private void ChangeFormWidth(Boolean Expand)
         {
-            for (int i = FORMSTARTWIDTH; i < FORMEXPANDWIDTH; i += INCREMENT)
+            if (Expand)
             {
-                this.Size = new Size(i, FORMSTARTHEIGHT);
-                this.Update();
-                System.Threading.Thread.Sleep(1);
+                if (!FormWidthExpanded)
+                {
+                    for (int i = FORMSTARTWIDTH; i < FORMEXPANDWIDTH; i += INCREMENT)
+                    {
+                        this.Size = new Size(i, FORMSTARTHEIGHT);
+                        this.Update();
+                        System.Threading.Thread.Sleep(1);
+                    }
+                    FormWidthExpanded = true;
+                }
             }
-            FormWidthExpanded = true;
-        }
-    }
-    else
-    {
-        if (FormWidthExpanded)
-        {
-            for (int i = FORMEXPANDWIDTH; i > FORMSTARTWIDTH; i -= INCREMENT)
+            else
             {
-                this.Size = new Size(i, FORMSTARTHEIGHT);
-                this.Update();
-                System.Threading.Thread.Sleep(1);
+                if (FormWidthExpanded)
+                {
+                    for (int i = FORMEXPANDWIDTH; i > FORMSTARTWIDTH; i -= INCREMENT)
+                    {
+                        this.Size = new Size(i, FORMSTARTHEIGHT);
+                        this.Update();
+                        System.Threading.Thread.Sleep(1);
+                    }
+                    FormWidthExpanded = false;
+                }
             }
-            FormWidthExpanded = false;
         }
-    }
-}
  
-//random Number Generator
-private String GenerateRandomNumber(int Min, int Max)
-{
-    Random MyRandomObject;
-    int RandomNumber;
+        //random Number Generator
+        private String GenerateRandomNumber(int Min, int Max)
+        {
+            Random MyRandomObject;
+            int RandomNumber;
 
-    MyRandomObject = new Random();
-    RandomNumber = MyRandomObject.Next(Min, Max);
+            MyRandomObject = new Random();
+            RandomNumber = MyRandomObject.Next(Min, Max);
 
-    return RandomNumber.ToString();
-}
+            return RandomNumber.ToString();
+        }
 
-}
+        public static void CreateEmptyFile (string FileName)
+        {
+            File.Create(FileName).Dispose();
+        }
+    }
 
 
 }
